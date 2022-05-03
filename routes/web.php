@@ -18,7 +18,7 @@ Route::get('/', function () {
     return" hello hadil hamdi how are you didi";
 });
 Route::get('/testmalek', function () {
-    return view('welcome Malek Kraimia');
+    return view('Malek Kraimia');
 
 });
 Route::get('/testmalek', function () {
