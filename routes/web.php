@@ -21,7 +21,3 @@ Route::get('/testmalek', function () {
     return view('welcome Malek Kraimia');
 
 });
-Route::get('/testmalek', function () {
-    return view('welcome noussa');
-
-});
