@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class club extends Model
 {
     use HasFactory;
+    use HasFactory;
+    public function composants(){
+        return $this->hasMany(composant::class);
+    }
 }
