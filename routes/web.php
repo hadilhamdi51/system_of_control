@@ -24,6 +24,6 @@ Route::get('/testmalek', function () {
     return view('hola ouma ben amor');
 });
 Route::get('//', function () {
-    return view('hola ines khiari');
+    return view('hi ines khiari');
 });
 
