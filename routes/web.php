@@ -20,4 +20,7 @@ Route::get('/', function () {
 Route::get('/testmalek', function () {
     return view('welcome Malek Kraimia');
 
+});Route::get('//', function () {
+    return view('hola ouma ben amor');
 });
+
