@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\composant;
+use App\Models\classroom;
+use App\Models\club;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ComposantFactory extends Factory
@@ -22,7 +24,10 @@ class ComposantFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->word(),
+            'classroom_id'=> classroom::get('id')->rondom(),
+            'club_id'=> club::get('id')->rondom(),
+            'created_at'=>now(),
         ];
     }
 }

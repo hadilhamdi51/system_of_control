@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\department;
+use App\Models\chef_dep;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class DepartmentFactory extends Factory
@@ -22,7 +23,9 @@ class DepartmentFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->word(),  
+            'chef_dep_id'=> chef_dep::get('id')->rondom(),
+            'created_at'=>now(),
         ];
     }
 }

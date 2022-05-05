@@ -22,7 +22,8 @@ class ClubFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->word(),
+            'created_at'=>now(),
         ];
     }
 }

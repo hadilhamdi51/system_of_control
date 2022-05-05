@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\reclamation;
+use App\Models\composant;
+use App\Models\user;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ReclamationFactory extends Factory
@@ -22,7 +24,10 @@ class ReclamationFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'description' => $this->faker->sentence(),
+            'user_id'=> user::get('id')->rondom(),
+            'composant_id'=> composant::get('id')->rondom(),
+            'created_at'=>now(),
         ];
     }
 }

@@ -15,15 +15,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-    return" hello hadil hamdi ";
+    
 });
-Route::get('/testmalek', function () {
-    return view('welcome Malek Kraimia');
-
-});Route::get('//', function () {
-    return view('hola ouma ben amor');
-});
-Route::get('//', function () {
-    return view('hi ines khiari');
-});
-

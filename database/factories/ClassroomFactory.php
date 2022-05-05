@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\classroom;
+use App\Models\department;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ClassroomFactory extends Factory
@@ -22,7 +23,9 @@ class ClassroomFactory extends Factory
     public function definition()
     {
         return [
-            //
+            ' name' => $this->faker->word(),
+            'department_id'=> department::get('id')->rondom(),
+            'created_at'=>now(),
         ];
     }
 }
