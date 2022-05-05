@@ -26,8 +26,8 @@ class SessionFactory extends Factory
         return [
             'start_date' => $this->faker->dateTime(),
             'end_date' => $this->faker->dateTime(),
-            'subject_id'=> subject::get('id')->rondom(),
-            'user_id'=> user::get('id')->rondom(),
+            'subject_id'=> subject::get('id')->random(),
+            'user_id'=> user::get('id')->random(),
             'created_at'=>now(),
         ];
     }

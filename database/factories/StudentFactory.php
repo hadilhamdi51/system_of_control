@@ -27,7 +27,7 @@ class StudentFactory extends Factory
             'last name' => $this->faker->word(),
             'email' => $this->faker->unique()->safeEmail,
             'image'=>$this->faker->imageUrl(640,480,'animals',true),
-            'department_id'=> department::get('id')->rondom(),
+            'department_id'=> department::get('id')->random()->id,
             'class' => $this->faker->word(),
             'state' => $this->faker->word(),
             'created_at'=>now(),

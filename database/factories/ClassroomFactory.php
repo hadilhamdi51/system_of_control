@@ -23,8 +23,8 @@ class ClassroomFactory extends Factory
     public function definition()
     {
         return [
-            ' name' => $this->faker->word(),
-            'department_id'=> department::get('id')->rondom(),
+            'name' => $this->faker->word(),
+            'department_id'=> department::get('id')->random(),
             'created_at'=>now(),
         ];
     }

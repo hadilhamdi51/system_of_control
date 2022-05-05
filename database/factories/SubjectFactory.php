@@ -25,7 +25,7 @@ class SubjectFactory extends Factory
         return [
           
                 'name' => $this->faker->word(),
-                'user_id'=> user::get('id')->rondom(),
+                'user_id'=> user::get('id')->random(),
                 'created_at'=>now(),
                 
                 

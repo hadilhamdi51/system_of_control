@@ -25,8 +25,8 @@ class ComposantFactory extends Factory
     {
         return [
             'name' => $this->faker->word(),
-            'classroom_id'=> classroom::get('id')->rondom(),
-            'club_id'=> club::get('id')->rondom(),
+            'classroom_id'=> classroom::get('id')->random(),
+            'club_id'=> club::get('id')->random(),
             'created_at'=>now(),
         ];
     }

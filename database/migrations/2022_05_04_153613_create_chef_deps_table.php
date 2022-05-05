@@ -19,9 +19,8 @@ class CreateChefDepsTable extends Migration
             $table->string('last name');
             $table->string('email');
             $table->string('image')->nullable();
-            $table->unsignedBigInteger('department_id');
             $table->timestamps();
-            $table->foreign('department_id')->references('id')->on('departments');
+         
         });
     }
 

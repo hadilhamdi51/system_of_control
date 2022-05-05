@@ -24,7 +24,7 @@ class DepartmentFactory extends Factory
     {
         return [
             'name' => $this->faker->word(),  
-            'chef_dep_id'=> chef_dep::get('id')->rondom(),
+            'chef_dep_id'=> chef_dep::get('id')->random(),
             'created_at'=>now(),
         ];
     }

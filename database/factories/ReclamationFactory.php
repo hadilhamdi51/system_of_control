@@ -25,8 +25,8 @@ class ReclamationFactory extends Factory
     {
         return [
             'description' => $this->faker->sentence(),
-            'user_id'=> user::get('id')->rondom(),
-            'composant_id'=> composant::get('id')->rondom(),
+            'user_id'=> user::get('id')->random(),
+            'composant_id'=> composant::get('id')->random(),
             'created_at'=>now(),
         ];
     }
