@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\reclamation;
 use Illuminate\Http\Request;
 
 class ReclamationController extends Controller
@@ -13,7 +13,8 @@ class ReclamationController extends Controller
      */
     public function index()
     {
-       
+        $reclamations=reclamation::all();
+        return view('reclamations.index',compact('reclamations')); 
     }
 
     /**
