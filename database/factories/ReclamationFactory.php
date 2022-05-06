@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\reclamation;
 use App\Models\composant;
+use App\Models\classroom;
 use App\Models\user;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -27,6 +28,7 @@ class ReclamationFactory extends Factory
             'description' => $this->faker->sentence(),
             'user_id'=> user::get('id')->random(),
             'composant_id'=> composant::get('id')->random(),
+            'classroom_id'=> classroom::get('id')->random(),
             'created_at'=>now(),
         ];
     }

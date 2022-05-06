@@ -18,8 +18,10 @@ class CreateReclamationsTable extends Migration
             $table->text('description');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('composant_id');
+            $table->unsignedBigInteger('classroom_id');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('classroom_id')->references('id')->on('classroomss');
             $table->foreign('composant_id')->references('id')->on('composants');
         });
     }
