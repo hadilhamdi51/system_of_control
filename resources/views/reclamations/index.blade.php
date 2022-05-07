@@ -124,7 +124,7 @@
 			</div>
 		</nav>
         <div class="main">
-			<nav class="navbar navbar-expand navbar-light navbar-bg">
+			<nav class="navbar navbar-expand navbar-light navbar-bg sticky">
 				<a class="sidebar-toggle js-sidebar-toggle">
           <i class="hamburger align-self-center"></i>
         </a>
@@ -301,7 +301,7 @@
 					<div class="row">
 						<div class=" d-flex">
 							<div class="card flex-fill">
-								<div class="card-header">
+								<div class="card-header mt-9">
 
 									<h5 class="card-title mb-0">Complaints</h5>
 								</div>
