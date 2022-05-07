@@ -15,6 +15,7 @@
     <title>Complaints</title>
     <link href="css/app.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
 </head>
     <body>
     <div class="wrapper">
@@ -298,7 +299,7 @@
 
 
 					<div class="row">
-						<div class="col-12 col-lg-8 col-xxl-9 d-flex">
+						<div class=" d-flex">
 							<div class="card flex-fill">
 								<div class="card-header">
 
