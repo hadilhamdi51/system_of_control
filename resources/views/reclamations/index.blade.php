@@ -8,7 +8,7 @@
 	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
 	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+	<link rel="shortcut icon" href="img/icons/iset.png" />
 
 	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
@@ -289,15 +289,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
 					<div class="row">
 						<div class=" d-flex">
 							<div class="card flex-fill">
@@ -306,16 +297,10 @@
 									<h5 class="card-title mb-0">Complaints</h5>
 								</div>
 								<table class="table table-hover my-0">
-									<thead>
-										<tr>
-											<th>Name</th>
-											<th class="d-none d-xl-table-cell">Start Date</th>
-											<th class="d-none d-xl-table-cell">End Date</th>
-											<th>Status</th>
-											<th class="d-none d-md-table-cell">Assignee</th>
-										</tr>
-									</thead>
+									
 									<tbody>
+									βforeach($reclamations as reclamation)
+										b:endforeach
 										<tr>
 											<td>Project Apollo</td>
 											<td class="d-none d-xl-table-cell">01/01/2021</td>
