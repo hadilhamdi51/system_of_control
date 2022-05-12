@@ -14,10 +14,7 @@ class MainController extends Controller
         return view('auth.register');
     }
     function save(Request $request){
-       $request->validate([
-           'name'=>'required',
-           'name'=>'required',
-       ])
+       return $request->input();
     }
 
 }
