@@ -8,12 +8,12 @@
 	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
 	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link rel="shortcut icon" href="img/icons/iset.png" />
+	<link rel="shortcut icon" href="../img/icons/iset.png" />
 
 	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
     <title>login</title>
-    <link href="css/app.css" rel="stylesheet">
+    <link href="../css/app.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     
 </head>
@@ -36,7 +36,7 @@
 							<div class="card-body">
 								<div class="m-sm-4">
 									<div class="text-center">
-										<img src="img/avatars/avatar.jpg" alt="Charles Hall" class="img-fluid rounded-circle" width="132" height="132" />
+										<img src="../img/avatars/avatar.jpg" alt="Charles Hall" class="img-fluid rounded-circle" width="132" height="132" />
 									</div>
 									<form>
 										<div class="mb-3">
