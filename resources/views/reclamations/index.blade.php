@@ -307,7 +307,7 @@
                                  </tr>
 								 </thead>
 									<tbody>
-<<<<<<< HEAD
+
 									@foreach($reclamations as $reclamation)
 
 							dd($reclamation);
@@ -315,8 +315,7 @@
 										<tr>
 											
 											<td class="d-none d-xl-table-cell">{{$reclamation->decription}}</td>
-											
-=======
+									
 									@foreach ($reclamations as $reclamation)
 										@endforeach
 										<tr>
