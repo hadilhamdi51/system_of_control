@@ -1,6 +1,8 @@
-<html>
-    <head>
-    <meta charset="utf-8">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
@@ -10,12 +12,12 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link rel="shortcut icon" href="../img/icons/iset.png" />
 
-	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
+	<link rel="canonical" href="https://demo-basic.adminkit.io/pages-sign-up.html" />
 
-    <title>login</title>
-    <link href="../css/app.css" rel="stylesheet">
+	<title>Signup</title>
+
+	<link href="../css/app.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    
 </head>
 
 <body>
@@ -26,48 +28,33 @@
 					<div class="d-table-cell align-middle">
 
 						<div class="text-center mt-4">
-							<h1 class="h2">Welcome back, Charles</h1>
+							<h1 class="h2">Get started</h1>
 							<p class="lead">
-								Sign in to your account to continue
+								Start creating the best possible user experience for you customers.
 							</p>
 						</div>
 
 						<div class="card">
 							<div class="card-body">
 								<div class="m-sm-4">
-									<div class="text-center">
-										<img src="../img/avatars/avatar.jpg" alt="Charles Hall" class="img-fluid rounded-circle" width="132" height="132" />
-									</div>
-									<form>
+									<form action="{{route('auth.save')}}" method="post">
+                                        @csrf
+										<div class="mb-3">
+											<label class="form-label">Name</label>
+											<input class="form-control form-control-lg" type="text" name="name" placeholder="Enter your name" />
+										</div>
+					
 										<div class="mb-3">
 											<label class="form-label">Email</label>
 											<input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" />
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Password</label>
-											<input class="form-control form-control-lg" type="password" name="password" placeholder="Enter your password" />
-											<small>
-            <a href="index.html">Forgot password?</a>
-			
-          </small>
-
-
-		 
+											<input class="form-control form-control-lg" type="password" name="password" placeholder="Enter password" />
 										</div>
-										
-										<div>
-											<label class="form-check">
-            <input class="form-check-input" type="checkbox" value="remember-me" name="remember-me" checked>
-            <span class="form-check-label">
-              Remember me next time
-            </span>
-          </label>
-										</div>
-										<small>
-		  <a href="{{route('auth.register')}}">I don't have an account! Sign Up</a> </small>
 										<div class="text-center mt-3">
-											<a href="" class="btn btn-lg btn-primary">Sign in</a>
-											<!-- <button type="submit" class="btn btn-lg btn-primary">Sign in</button> -->
+											<button type="submit" class="btn btn-lg btn-primary">Sign up</button>
+											<!-- <button type="submit" class="btn btn-lg btn-primary">Sign up</button> -->
 										</div>
 									</form>
 								</div>
