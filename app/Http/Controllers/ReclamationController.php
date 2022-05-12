@@ -15,6 +15,7 @@ class ReclamationController extends Controller
     {
         $reclamations=reclamation::all();
         return view('reclamations.index',compact('reclamations')); 
+
     }
 
     /**
@@ -28,7 +29,7 @@ class ReclamationController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in storage.   
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -46,7 +47,6 @@ class ReclamationController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**

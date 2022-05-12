@@ -12,5 +12,6 @@ class AppController extends Controller
         // $todos = Todo::all();
         // return view('welcome', ['todos' => $todos]);
         return view('welcome');
+    
     }
 }
