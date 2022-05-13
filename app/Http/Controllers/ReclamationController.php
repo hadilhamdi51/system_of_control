@@ -17,6 +17,12 @@ class ReclamationController extends Controller
         return view('reclamations.index',compact('reclamations')); 
 
     }
+    public function addreclam()
+    {
+        $reclamations=reclamation::all();
+        return view('reclamations.addreclam',compact('reclamations')); 
+
+    }
     /**
      * Show the form for creating a new resource.
      *
