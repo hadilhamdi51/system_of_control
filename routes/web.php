@@ -25,6 +25,5 @@ Route::resource('/reclamations',ReclamationController::class);
 Route::resource('students', StudentController::class);
 Route::get('/auth/login',[MainController::class,'login'])->name('auth.login');
 Route::get('/auth/register',[MainController::class,'register'])->name('auth.register');
-
-
 Route::post('/auth/save',[MainController::class, 'save'])->name('auth.save');
+Route::post('/auth/chack',[MainController::class, 'chack'])->name('auth.check');

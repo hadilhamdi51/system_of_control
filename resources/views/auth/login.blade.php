@@ -39,14 +39,17 @@
 									<div class="text-center">
 										<img src="../img/avatars/avatar.jpg" alt="Charles Hall" class="img-fluid rounded-circle" width="132" height="132" />
 									</div>
-									<form>
+									<form action="{{route('auth.check')}}" method="post">
+										@csrf
 										<div class="mb-3">
 											<label class="form-label">Email</label>
-											<input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" />
+											<input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" value="{{ old('email') }}">
+                 <span class="text-danger">@error('email'){{ $message }} @enderror</span>
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Password</label>
 											<input class="form-control form-control-lg" type="password" name="password" placeholder="Enter your password" />
+											<span class="text-danger">@error('password'){{ $message }} @enderror</span>
 											<small>
             <a href="index.html">Forgot password?</a>
 			
