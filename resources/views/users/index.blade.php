@@ -354,12 +354,12 @@
 			<td>{{ Str::substr($user->updated_at, 0, 30).'...' }}</td>
   
                     <td>
-                        <a href="{{ route('users.show', $user->id) }}" class="btn btn-outline-info">Show</a>
+                        <a href="{{ route('users.show', $user->id) }}"class="btn btn-outline-info">Show</a>
                         <a href="{{ route('users.edit', $user->id) }}" class="btn btn-outline-warning">Edit</a>
                         <a href="#" 
                         onclick="event.preventDefault();
                         document.querySelector( '#delete-user-form-{{ $user->id }}').submit();">Delete</a>
-                        <form id="delete-user-form-{{ $user->id }}" action="{{ route('users.destroy', $user->id) }}" method="user" style="display: none;">
+                        <form id="delete-user-form-{{ $user->id }}" action="{{ route('users.destroy', $user->id) }}" method="post" style="display: none;">
                             @csrf
                             @method('DELETE')
                         </form>

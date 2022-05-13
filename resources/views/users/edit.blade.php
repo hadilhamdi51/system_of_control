@@ -1,4 +1,4 @@
-<x-app-layout>
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('users') }}
@@ -75,4 +75,3 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
-</x-app-layout>

@@ -60,7 +60,7 @@ class UserController extends Controller
     public function show($id)
     {
         $users = user::findOrFail($id);
-        return view('users.show', compact('user'));
+        return view('users.show');
         
     }
 
@@ -88,7 +88,7 @@ class UserController extends Controller
     {   $request->validate($this->validationRules());
 
         $user = user::findOrFail($id);
-        $user = new reclamation();
+        $user = new user();
         $user->name = $request->name;
         $user->email  = $request->email;
         $user->email_verified_at  = $request->email_verified_at;
