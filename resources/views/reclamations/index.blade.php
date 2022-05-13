@@ -332,7 +332,7 @@
                                       </td>
 										</tr>
 										@endforeach
-=======
+
                                 
 								 </thead>
 									<tbody>
