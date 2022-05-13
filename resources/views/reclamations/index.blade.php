@@ -288,7 +288,6 @@
 
 
 
-
 					<div class="row">
 						<div class=" d-flex">
 							<div class="card flex-fill">
@@ -299,25 +298,20 @@
 								<table class="table table-hover my-0">
 								<thead>
                                  <tr>
-                                   <th scope="col">Reclamation </th>
-                                   <th scope="col">date of reclamation</th> 
-                                   <th scope="col">traitement</th>
-                                   <th scope="col">Professor </th>
-								   <th scope="col">date of traitement</th> 
+                                   <th scope="col">id </th>
+                                   <th scope="col">description</th> 
+                                   <th scope="col">user_id</th>
+                                   <th scope="col">composant_id</th>
+								   <th scope="col">classroom_id</th> 
+								   <th scope="col">created_at</th> 
+								   <th scope="col">updated_at</th> 
+								   <th scope="col">action</th> 
+
+
                                  </tr>
 								 </thead>
 									<tbody>
-
-									@foreach($reclamations as $reclamation)
-
-							dd($reclamation);
-                                   
-										<tr>
-											
-											<td class="d-none d-xl-table-cell">{{$reclamation->decription}}</td>
 									
-									@foreach ($reclamations as $reclamation)
-										@endforeach
 										<tr>
 											<td>Project Apollo</td>
 											<td class="d-none d-xl-table-cell"></td>
@@ -384,5 +378,29 @@
 						
 					</div>
                     <script src="js/app.js"></script>
+=======
+									<tr>
+											<td>{{ $reclamation->id }}</td>
+											<td>{{ Str::substr($reclamation->description, 0, 60).'...' }}</td>
+											<td>{{ $reclamation->user_id }}</td>
+											<td>{{ $reclamation->composant_id }}</td>
+											<td>{{ $reclamation->classroom_id }}</td>
+											<td>{{ Str::substr($reclamation->created_at, 0, 30).'...' }}</td>
+											<td>{{ Str::substr($reclamation->updated_at, 0, 30).'...' }}</td>
+											<td>
+                                 <a href="{{ route('reclamations.show', $reclamation->id) }}" class="btn btn-outline-info">Show</a>
+                                 <a href="{{ route('reclamations.edit', $reclamation->id) }}" class="btn btn-outline-warning">Edit</a>
+                                 <a href="#" class="btn btn-outline-danger" onclick="event.preventDefault();document.querySelector('#delete-post-form-{{ $reclamation->id }}').submit();">Delete</a>
+                                  <form id="delete-post-form-{{ $reclamation->id }}" action="{{ route('reclamations.destroy', $reclamation->id) }}" method="POST" style="display: none;">
+                                    @csrf
+                                    @method('DELETE')
+					</form>
+                        </td>
+						</tr>
+						@endforeach
+                                
+								 </thead>
+								  <script src="js/app.js"></script>
+>>>>>>> b9825bfebfa0575b9b2bcff29f6911732e777355
 </body>
 </html>

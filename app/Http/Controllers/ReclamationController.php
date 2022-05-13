@@ -35,7 +35,15 @@ class ReclamationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate($this->validationRules());
+
+        // alternative 1
+        $reclamation = new reclamation();
+        $reclamation->descreption = $request->descreption;
+        $reclamation->created_at = $request->created_at;
+        $reclamation->updated_at = $request->updated_at;
+        $reclamation>save();
+        return redirect()->route('reclamations.show', $reclamation->id)->with('success', 'complaints created successfully');
     }
 
     /**
@@ -46,6 +54,8 @@ class ReclamationController extends Controller
      */
     public function show($id)
     {
+        $reclamations = reclamation::findOrFail($id);
+        return view('reclamations.show', compact('reclamations'));
     }
 
     /**
@@ -56,7 +66,8 @@ class ReclamationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $reclamations = reclamation::findOrFail($id);
+        return view('reclamations.edit', compact('reclamation'));
     }
 
     /**
@@ -68,7 +79,20 @@ class ReclamationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate($this->validationRules());
+
+        $user = user::findOrFail($id);
+        $user = new reclamation();
+        $user->name = $request->name;
+        $user->email  = $request->email;
+        $user->email_verified_at  = $request->email_verified_at;
+        $user->password  = $request->password;
+        $user->remember_token  = $remember_token;
+        $user->created_at = $request->created_at;
+        $user->updated_at = $request->updated_at;
+        $user>save();
+        return redirect()->route('users.show', $reclamation->id)->with('success', 'user created successfully');
+    
     }
 
     /**
@@ -80,5 +104,14 @@ class ReclamationController extends Controller
     public function destroy($id)
     {
         //
+    }
+    private function validationRules()
+    {
+        return [
+            'descreption' => ['required', 'min:20', 'max:255'],
+            'created_at' => 'required|min:10',
+            'updated_at' => 'required|min:10',
+            
+        ];
     }
 }
