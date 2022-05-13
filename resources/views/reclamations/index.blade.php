@@ -306,79 +306,9 @@
 								   <th scope="col">created_at</th> 
 								   <th scope="col">updated_at</th> 
 								   <th scope="col">action</th> 
-
-
                                  </tr>
 								 </thead>
 									<tbody>
-									
-										<tr>
-											<td>Project Apollo</td>
-											<td class="d-none d-xl-table-cell"></td>
-											<td><span class="badge bg-success">Done</span></td>
-											<td class="d-none d-md-table-cell">Vanessa Tucker</td>
-											<td class="d-none d-xl-table-cell"></td>
-										</tr>
-											<tr>
-											<td>Project Fireball</td>
-											<td class="d-none d-xl-table-cell">01/01/2021</td>
-											<td><span class="badge bg-danger">Cancelled</span></td>
-											<td class="d-none d-md-table-cell">William Harris</td>
-											<td class="d-none d-xl-table-cell">31/06/2021</td>
-										</tr>
-										<tr>
-											<td>Project Hades</td>
-											<td class="d-none d-xl-table-cell">01/01/2021</td>
-											<td><span class="badge bg-success">Done</span></td>
-											<td class="d-none d-md-table-cell">Sharon Lessman</td>
-											<td class="d-none d-xl-table-cell">31/06/2021</td>
-										</tr>
-										<tr>
-											<td>Project Nitro</td>
-											<td class="d-none d-xl-table-cell">01/01/2021</td>
-											<td><span class="badge bg-warning">In progress</span></td>
-											<td class="d-none d-md-table-cell">Vanessa Tucker</td>
-											<td class="d-none d-xl-table-cell">31/06/2021</td>
-										</tr>
-										<tr>
-											<td>Project Phoenix</td>
-											<td class="d-none d-xl-table-cell">01/01/2021</td>										
-											<td><span class="badge bg-success">Done</span></td>
-											<td class="d-none d-md-table-cell">William Harris</td>
-											<td class="d-none d-xl-table-cell">31/06/2021</td>
-										</tr>
-										<tr>
-											<td>Project X</td>
-											<td class="d-none d-xl-table-cell">01/01/2021</td>
-											<td><span class="badge bg-success">Done</span></td>
-											<td class="d-none d-md-table-cell">Sharon Lessman</td>
-											<td class="d-none d-xl-table-cell">31/06/2021</td>
-										</tr>
-										<tr>
-											<td>Project Romeo</td>
-											<td class="d-none d-xl-table-cell">01/01/2021</td>
-											<td><span class="badge bg-success">Done</span></td>
-											<td class="d-none d-md-table-cell">Christina Mason</td>
-											<td class="d-none d-xl-table-cell">31/06/2021</td>
-										</tr>
-										<tr>
-											<td>Project Wombat</td>
-											<td class="d-none d-xl-table-cell">01/01/2021</td>										
-											<td><span class="badge bg-warning">In progress</span></td>
-											<td class="d-none d-md-table-cell">William Harris</td>
-											<td class="d-none d-xl-table-cell">31/06/2021</td>
-
-										</tr>
-                                        @endforeach
-										
-									</tbody>
-								</table>
-							</div>
-						</div>
-						
-					</div>
-                    <script src="js/app.js"></script>
-=======
 									<tr>
 											<td>{{ $reclamation->id }}</td>
 											<td>{{ Str::substr($reclamation->description, 0, 60).'...' }}</td>
@@ -391,16 +321,14 @@
                                  <a href="{{ route('reclamations.show', $reclamation->id) }}" class="btn btn-outline-info">Show</a>
                                  <a href="{{ route('reclamations.edit', $reclamation->id) }}" class="btn btn-outline-warning">Edit</a>
                                  <a href="#" class="btn btn-outline-danger" onclick="event.preventDefault();document.querySelector('#delete-post-form-{{ $reclamation->id }}').submit();">Delete</a>
-                                  <form id="delete-post-form-{{ $reclamation->id }}" action="{{ route('reclamations.destroy', $reclamation->id) }}" method="POST" style="display: none;">
+                                <form id="delete-post-form-{{ $reclamation->id }}" action="{{ route('reclamations.destroy', $reclamation->id) }}" method="POST" style="display: none;">
                                     @csrf
                                     @method('DELETE')
-					</form>
-                        </td>
-						</tr>
+								</form>
+				           </td>		
+					</tr>
 						@endforeach
                                 
-								 </thead>
 								  <script src="js/app.js"></script>
->>>>>>> b9825bfebfa0575b9b2bcff29f6911732e777355
 </body>
 </html>

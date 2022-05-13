@@ -1,15 +1,5 @@
 
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('reclamations') }}
-        </h2>
-    </x-slot>
-    @if (Session::get('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>{{Session::get('success')}}</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-    @endif
+@include{layouts.homa}
 
 <h2>Complaints details</h2>
 <div class="card mb-3">
