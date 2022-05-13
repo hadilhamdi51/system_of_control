@@ -21,4 +21,6 @@ Route::resource('/users',UserController::class);
 Route::resource('/reclamations',ReclamationController::class);
 Route::get('/auth/login',[MainController::class,'login'])->name('auth.login');
 Route::get('/auth/register',[MainController::class,'register'])->name('auth.register');
-Route::post('/auth/save',[MainController::class,'save'])->name('auth.save');
+
+
+Route::post('/auth/save',[MainController::class, 'save'])->name('auth.save');
