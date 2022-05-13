@@ -298,26 +298,15 @@
 								</div>
 								<table class="table table-hover my-0">
 								<thead>
-                                 <tr>
-                                   <th scope="col">Reclamation </th>
-                                   <th scope="col">date of reclamation</th> 
-                                   <th scope="col">traitement</th>
-                                   <th scope="col">Professor </th>
-								   <th scope="col">date of traitement</th> 
-                                 </tr>
+                                
 								 </thead>
 									<tbody>
 
-									@foreach($reclamations as $reclamation)
-
-							dd($reclamation);
-                                   
 										<tr>
 											
 											<td class="d-none d-xl-table-cell">{{$reclamation->decription}}</td>
 									
-									@foreach ($reclamations as $reclamation)
-										@endforeach
+									
 										<tr>
 											<td>Project Apollo</td>
 											<td class="d-none d-xl-table-cell"></td>
@@ -344,7 +333,7 @@
 											<td class="d-none d-xl-table-cell">01/01/2021</td>
 											<td><span class="badge bg-warning">In progress</span></td>
 											<td class="d-none d-md-table-cell">Vanessa Tucker</td>
-											<td class="d-none d-xl-table-cell">31/06/2021</td>
+											<td class="d-none d-xl-table-cell">31/06/2021</td>QA
 										</tr>
 										<tr>
 											<td>Project Phoenix</td>
@@ -373,7 +362,7 @@
 											<td><span class="badge bg-warning">In progress</span></td>
 											<td class="d-none d-md-table-cell">William Harris</td>
 											<td class="d-none d-xl-table-cell">31/06/2021</td>
->>>>>>> d9937e8c22b1e766dfa9ca090feb4e6f95fcb705
+
 										</tr>
                                         @endforeach
 										
