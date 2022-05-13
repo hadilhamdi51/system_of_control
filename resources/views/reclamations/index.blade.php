@@ -297,6 +297,7 @@
 								</div>
 								<table class="table table-hover my-0">
 								<thead>
+<<<<<<< HEAD
                                  <tr>
                                    <th scope="col">id </th>
                                    <th scope="col">description</th> 
@@ -331,6 +332,76 @@
                                       </td>
 										</tr>
 										@endforeach
+=======
+                                
+								 </thead>
+									<tbody>
+
+										<tr>
+											
+											<td class="d-none d-xl-table-cell">{{$reclamation->decription}}</td>
+									
+									
+										<tr>
+											<td>Project Apollo</td>
+											<td class="d-none d-xl-table-cell"></td>
+											<td><span class="badge bg-success">Done</span></td>
+											<td class="d-none d-md-table-cell">Vanessa Tucker</td>
+											<td class="d-none d-xl-table-cell"></td>
+										</tr>
+											<tr>
+											<td>Project Fireball</td>
+											<td class="d-none d-xl-table-cell">01/01/2021</td>
+											<td><span class="badge bg-danger">Cancelled</span></td>
+											<td class="d-none d-md-table-cell">William Harris</td>
+											<td class="d-none d-xl-table-cell">31/06/2021</td>
+										</tr>
+										<tr>
+											<td>Project Hades</td>
+											<td class="d-none d-xl-table-cell">01/01/2021</td>
+											<td><span class="badge bg-success">Done</span></td>
+											<td class="d-none d-md-table-cell">Sharon Lessman</td>
+											<td class="d-none d-xl-table-cell">31/06/2021</td>
+										</tr>
+										<tr>
+											<td>Project Nitro</td>
+											<td class="d-none d-xl-table-cell">01/01/2021</td>
+											<td><span class="badge bg-warning">In progress</span></td>
+											<td class="d-none d-md-table-cell">Vanessa Tucker</td>
+											<td class="d-none d-xl-table-cell">31/06/2021</td>QA
+										</tr>
+										<tr>
+											<td>Project Phoenix</td>
+											<td class="d-none d-xl-table-cell">01/01/2021</td>										
+											<td><span class="badge bg-success">Done</span></td>
+											<td class="d-none d-md-table-cell">William Harris</td>
+											<td class="d-none d-xl-table-cell">31/06/2021</td>
+										</tr>
+										<tr>
+											<td>Project X</td>
+											<td class="d-none d-xl-table-cell">01/01/2021</td>
+											<td><span class="badge bg-success">Done</span></td>
+											<td class="d-none d-md-table-cell">Sharon Lessman</td>
+											<td class="d-none d-xl-table-cell">31/06/2021</td>
+										</tr>
+										<tr>
+											<td>Project Romeo</td>
+											<td class="d-none d-xl-table-cell">01/01/2021</td>
+											<td><span class="badge bg-success">Done</span></td>
+											<td class="d-none d-md-table-cell">Christina Mason</td>
+											<td class="d-none d-xl-table-cell">31/06/2021</td>
+										</tr>
+										<tr>
+											<td>Project Wombat</td>
+											<td class="d-none d-xl-table-cell">01/01/2021</td>										
+											<td><span class="badge bg-warning">In progress</span></td>
+											<td class="d-none d-md-table-cell">William Harris</td>
+											<td class="d-none d-xl-table-cell">31/06/2021</td>
+
+										</tr>
+                                        @endforeach
+										
+>>>>>>> ed2bc5a101debddb3af59587b6dab21aa54981f3
 									</tbody>
 								</table>
 							</div>
