@@ -299,7 +299,7 @@
 								<thead>
                                  <tr>
                                    <th scope="col">id </th>
-                                   <th scope="col">descreption</th> 
+                                   <th scope="col">description</th> 
                                    <th scope="col">user_id</th>
                                    <th scope="col">composant_id</th>
 								   <th scope="col">classroom_id</th> 
@@ -314,7 +314,7 @@
 									@foreach ($reclamations as $reclamation)
 									<tr>
 											<td>{{ $reclamation->id }}</td>
-											<td>{{ Str::substr($reclamation->descreption, 0, 60).'...' }}</td>
+											<td>{{ Str::substr($reclamation->description, 0, 60).'...' }}</td>
 											<td>{{ $reclamation->user_id }}</td>
 											<td>{{ $reclamation->composant_id }}</td>
 											<td>{{ $reclamation->classroom_id }}</td>
