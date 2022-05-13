@@ -373,7 +373,7 @@
 											<td><span class="badge bg-warning">In progress</span></td>
 											<td class="d-none d-md-table-cell">William Harris</td>
 											<td class="d-none d-xl-table-cell">31/06/2021</td>
->>>>>>> d9937e8c22b1e766dfa9ca090feb4e6f95fcb705
+
 										</tr>
                                         @endforeach
 										
