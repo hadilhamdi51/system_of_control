@@ -23,8 +23,8 @@ class StudentFactory extends Factory
     public function definition()
     {
         return [
-            'first name' => $this->faker->word(),
-            'last name' => $this->faker->word(),
+            'first_name' => $this->faker->word(),
+            'last_name' => $this->faker->word(),
             'email' => $this->faker->unique()->safeEmail,
             'image'=>$this->faker->imageUrl(640,480,'animals',true),
             'department_id'=> department::get('id')->random()->id,
