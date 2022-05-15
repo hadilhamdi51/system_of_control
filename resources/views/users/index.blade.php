@@ -327,8 +327,8 @@
 											<th class="d-none d-xl-table-cell">Nom</th>
 											<th class="d-none d-xl-table-cell">Email</th>
 											<th class="d-none d-xl-table-cell">Verifier Email</th>
-											<th class="d-none d-xl-table-cell">Password</th>
-											<th class="d-none d-md-table-cell">remember_token</th>
+											
+											
 											<th class="d-none d-md-table-cell">created at</th>
 											<th class="d-none d-md-table-cell">update at</th>
 											<th class="d-none d-md-table-cell">Action</th>
@@ -348,8 +348,7 @@
             <td >{{$user->name }}</td>
 			<td >{{$user->email }}</td>
             <td >{{$user->email_verified_at }}</td>
-			<td >{{ Str::substr($user->password, 0, 30).'...' }}</td>
-			<td >{{ Str::substr($user->remember_token, 0, 30).'...' }}</td>
+			
             <td>{{ Str::substr($user->created_at, 0, 30).'...' }}</td>
 			<td>{{ Str::substr($user->updated_at, 0, 30).'...' }}</td>
   

@@ -85,20 +85,14 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {   $request->validate($this->validationRules());
+    {     $validatedData= $request->validate([
+        'name' => 'required|max:255',
+        'email' => 'required'
+    ]);
+    User::whereId($id)->update($validatedData);
 
-        $user = user::findOrFail($id);
-        $user = new user();
-        $user->name = $request->name;
-        $user->email  = $request->email;
-        $user->email_verified_at  = $request->email_verified_at;
-        $user->password  = $request->password;
-        $user->remember_token  = $remember_token;
-        $user->created_at = $request->created_at;
-        $user->updated_at = $request->updated_at;
-        $user>save();
-        return redirect()->route('users.show', $reclamation->id)->with('success', 'user created successfully');
-    
+    return redirect()->route('users.index')->with('success', 'user created successfully');
+
     }
 
     /**
