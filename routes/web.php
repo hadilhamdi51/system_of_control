@@ -23,7 +23,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[AppController::class, 'welcome'] );
 Route::resource('/users',UserController::class);
 Route::resource('/reclamations',ReclamationController::class);
-Route::resource('students', StudentController::class);
+Route::resource('/students', StudentController::class);
+//export en pdf 
+Route::get('/exportpdf',[StudentController::class, 'exportpdf'])->name('exportpdf');
 Route::get('/auth/login',[MainController::class,'login'])->name('auth.login');
 Route::get('/auth/register',[SaveController::class,'register'])->name('auth.register');
 Route::post('/auth/save',[SaveController::class, 'save'])->name('auth.save');
