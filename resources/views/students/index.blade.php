@@ -302,12 +302,15 @@
 							<div class="card flex-fill">
 								<div class="card-header mt-9">
 
-									<h5 class="card-title mb-0">Liste student</h5>
+										<div class="card-header shadow-lg bg-danger text-white">
+										<i class="fas fa-th-list"> Liste des etudiants</i>
+										<span class="badge rounded-pill bg-warning text-dark" id="nb_etudiants"><?= count($students); ?> etudiants</span>	
+											</div>
 								</div>
 
 
 
-
+							
 
 
 
@@ -317,6 +320,9 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     @endif
+<div class="row g-3 align-items-center mt-2">
+	<div class="col-auto"><a class="btn btn-info" href="/exportpdf" role="button">Export PDF+</a></div>
+</div>
     
   
   <div class="md-card-content"style="overflow-x: auto;" >
@@ -347,7 +353,7 @@
 		<th  scope="row">{{ $student->id }}</th>
 		
             <td >{{$student->first_name }}</td>
-			<td >{{$student->last_image }}</td>
+			<td >{{$student->last_name }}</td>
             <td >{{$student->email }}</td>
             <td >{{$student->image }}</td>
             <td >{{$student->department_id}}</td>

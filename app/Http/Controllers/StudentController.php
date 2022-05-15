@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\student;
 use Illuminate\Http\Request;
 
+use PDF;
+
 class StudentController extends Controller
 {
     /**
@@ -113,5 +115,12 @@ class StudentController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function exportpdf()
+    {    
+        $students=student::all();
+        view()->share('students', $students);
+        $pdf = PDF::loadView('students.absence-pdf');
+        return $pdf->download('student.pdf');
     }
 }
