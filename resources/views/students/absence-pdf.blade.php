@@ -28,25 +28,34 @@
 </head>
 <body>
 
-<h1>A Fancy Table</h1>
-@php
-$number=1;
-@endphp
+<h1>fiche d'absence</h1>
+<h5><div class="card-header mt-9">
+								<i class="fas fa-th-list"> Liste des etudiants</i>
+										<span class="badge rounded-pill bg-warning text-dark" id="nb_etudiants"><?= count($students); ?> etudiants</span>
+                    <br>
+                    <?php
+
+echo "today is " .date("l").":".date("Y-m-d h:i:sa");
+?>	
+								</div></h5>
+
 <table id="customers">
   <tr>
-  <th >#</th>
-  <th >state</th>
+  <th >first_name</th>
+  <th >last_name</th>
   <th >department_id</th>
   <th >classe</th>
+  <th >state</th>
   </tr>
 
 
     @foreach($students as $student)
         <tr>
-            <td>{{$number}}<td>
-            <td >{{$student->state}}</td>
+            <td >{{$student->first_name}}</td>
+            <td >{{$student->last_name}}</td>
             <td >{{$student->department_id}}</td>
             <td >{{$student->class}}</td>
+            <td >{{$student->state}}</td>
          </tr>
     @endforeach
 </table>
