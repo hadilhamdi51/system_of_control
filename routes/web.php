@@ -1,11 +1,4 @@
 <?php
-use App\Http\Controllers\ReclamationController;
-use App\Http\Controllers\AppController;
-use App\Http\Controllers\MainController;
-use App\Http\Controllers\SaveController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\StudentController;
- 
 
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+<<<<<<< HEAD
 Route::get('/',[AppController::class, 'welcome'] );
 Route::resource('/users',UserController::class);
 Route::resource('/reclamations',ReclamationController::class);
@@ -36,4 +30,14 @@ Route::get('/admin-dashboard',function(){
     
 Route::get('/home','HomeController@index')->name('home');
 
+=======
+Route::get('/', function () {
+    return view('welcome');
+>>>>>>> 6e17a8b4b727aece8da783c294e5a177d899bef0
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';

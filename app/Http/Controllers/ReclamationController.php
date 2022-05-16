@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\reclamation;
+use App\Models\composant;
+use App\Models\classroom;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ReclamationController extends Controller
@@ -30,7 +33,11 @@ class ReclamationController extends Controller
      */
     public function create()
     {
-        //
+        $composants= composant::all();
+        $classes= classroom::all();
+        $users= User::all();
+        return view('reclamations.create', compact('composants', 'classes','users'));
+       
     }
 
     /**
@@ -45,11 +52,13 @@ class ReclamationController extends Controller
 
         // alternative 1
         $reclamation = new reclamation();
-        $reclamation->descreption = $request->descreption;
-        $reclamation->created_at = $request->created_at;
-        $reclamation->updated_at = $request->updated_at;
-        $reclamation>save();
-        return redirect()->route('reclamations.show', $reclamation->id)->with('success', 'complaints created successfully');
+        $reclamation->description = $request->description;
+        $reclamation->user_id = $request->user_id;
+        $reclamation->classroom_id = $request->classroom_id;
+        $reclamation->composant_id = $request->composant_id;
+        $reclamation->save();
+        return redirect()->route('reclamations.index')->with('success', 'Post created successfully');
+         
     }
 
     /**
