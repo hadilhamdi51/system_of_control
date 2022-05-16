@@ -14,10 +14,10 @@
 <h2>Student details</h2>
 <div class="card mb-3">
     <div class="card-body">
-      <h5 class="card-title">{{ $students->last_name }}<span class="badge bg-primary">{{ $students->last_name }}</span></h5>
-      <h5 class="card-title">{{ $students->first_name }}<span class="badge bg-primary">{{ $students->first_name }}</span></h5>
-      <h5 class="card-title">{{ $students->email }}<span class="badge bg-primary">{{ $students->email }}</span></h5>
-      <h5 class="card-title">{{ $students->created_at }}<span class="badge bg-primary">{{ $students->created_at}}</span></h5>
+      <h5 class="card-title"><span class="badge bg-primary">{{ $students->last_name }}</span></h5>
+      <h5 class="card-title"><span class="badge bg-primary">{{ $students->first_name }}</span></h5>
+     <h5 class="card-title"><span class="badge bg-primary">{{ $students->department_id }}</span></h5>
+      <h5 class="card-title"><span class="badge bg-primary">{{ $students->state}}</span></h5>
     </div>
   </div>
   
