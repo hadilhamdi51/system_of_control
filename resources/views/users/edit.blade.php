@@ -34,14 +34,14 @@
 
         
         </div>
-        <div class="mb-3">
+        <!--<div class="mb-3">
           <label for="password" class="form-label">password</label>
-          <input type="text" name="email" value="{{ old('password') ?? $user->password }}" class="form-control @error('password') is-invalid @enderror" id="password" aria-describedby="emailHelp">
+          <input type="text" name="email" value="{{ old('password') ?? $user->password }}" class="form-control @error('password') is-invalid @enderror" id="password" aria-describedby="">
           @error('password')
             <small class="text-danger">{{ $message }}</small>
           @enderror
 
-        </div>
+        </div>-->
        
         
        
