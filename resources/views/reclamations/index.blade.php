@@ -320,14 +320,9 @@
 											<td>{{ Str::substr($reclamation->updated_at, 0, 30).'...' }}</td>
 											<td>
                                  <a href="{{ route('reclamations.show', $reclamation->id) }}" class="btn btn-outline-info">Show</a>
-                                 <a href="{{ route('reclamations.edit', $reclamation->id) }}" class="btn btn-outline-warning">Edit</a>
-                                 <a href="#" class="btn btn-outline-danger" onclick="event.preventDefault();document.querySelector('#delete-post-form-{{ $reclamation->id }}').submit();">Delete</a>
-                                <form id="delete-post-form-{{ $reclamation->id }}" action="{{ route('reclamations.destroy', $reclamation->id) }}" method="POST" style="display: none;">
-                                    @csrf
-                                    @method('DELETE')
-								</form>
+                                 
 				           </td>		
-					</tr>
+					</tr> 
 						@endforeach
                                 
 								  <script src="js/app.js"></script>

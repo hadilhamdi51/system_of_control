@@ -8,12 +8,12 @@
 	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
 	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+	<link rel="shortcut icon" href="../img/icons/iset.png" />
 
 	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
     <title>Complaints</title>
-    <link href="css/app.css" rel="stylesheet">
+    <link href="../css/app1.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     
 </head>
@@ -301,11 +301,8 @@
 						<div class=" d-flex">
 							<div class="card flex-fill">
 								<div class="card-header mt-9">
-
-										<div class="card-header shadow-lg bg-danger text-white">
-										<i class="fas fa-th-list"> Liste des etudiants</i>
+								<i class="fas fa-th-list"> Liste des etudiants</i>
 										<span class="badge rounded-pill bg-warning text-dark" id="nb_etudiants"><?= count($students); ?> etudiants</span>	
-											</div>
 								</div>
 
 
@@ -325,20 +322,20 @@
 </div>
     
   
-  <div class="md-card-content"style="overflow-x: auto;" >
-								<table   >
+  <div class="md-card-content"style="overflow-x: auto; border: 1px solid;" >
+<table >
 									<thead >
 										<tr >
 										    <th scope="col">#</th>
 											<th class="d-none d-xl-table-cell">first_name</th>
 											<th class="d-none d-xl-table-cell">last_name</th>
-											<th class="d-none d-xl-table-cell">email</th>
-											<th class="d-none d-xl-table-cell">image</th>
+											<!--<th class="d-none d-xl-table-cell">email</th>
+											<th class="d-none d-xl-table-cell">image</th>-->
 											<th class="d-none d-md-table-cell">department_id</th>
 											<th class="d-none d-md-table-cell">classe</th>
                                             <th class="d-none d-md-table-cell">state</th>
-											<th class="d-none d-md-table-cell">created at</th>
-											<th class="d-none d-md-table-cell">update at</th>
+										<!--	<th class="d-none d-md-table-cell">created at</th>
+											<th class="d-none d-md-table-cell">update at</th>-->
 										</tr>
 									</thead>
 
@@ -348,44 +345,42 @@
         
         <tbody>
              @foreach($students as $student)
-        <tr>
+									<tr>
+										
+									<th  scope="row">{{ $student->id }}</th>
+									
+										<td >{{$student->first_name }}</td>
+										<td >{{$student->last_name }}</td>
+										<!-- <td >{{$student->email }}</td>
+									<td >{{$student->image }}</td>-->
+										<td >{{$student->department_id}}</td>
+										<td >{{$student->class}}</td>
+										<td >{{$student->state}}</td>
             
-		<th  scope="row">{{ $student->id }}</th>
-		
-            <td >{{$student->first_name }}</td>
-			<td >{{$student->last_name }}</td>
-            <td >{{$student->email }}</td>
-            <td >{{$student->image }}</td>
-            <td >{{$student->department_id}}</td>
-            <td >{{$student->class}}</td>
-            <td >{{$student->state}}</td>
-            
-			<!-- <td >{{ Str::substr($student->password, 0, 30).'...' }}</td>
-			<td >{{ Str::substr($student->remember_token, 0, 30).'...' }}</td>
-            -->
-            <td>{{ Str::substr($student->created_at, 0, 30).'...' }}</td>
-			<td>{{ Str::substr($student->updated_at, 0, 30).'...' }}</td>
+           
+          	<!--  <td>{{ Str::substr($student->created_at, 0, 30).'...' }}</td>
+			<td>{{ Str::substr($student->updated_at, 0, 30).'...' }}</td> -->
   
-                    <td>
-                        <a href="{{ route('students.show', $student->id) }}" class="btn btn-outline-info">Show</a>
-                        <a href="{{ route('students.edit', $student->id) }}" class="btn btn-outline-warning">Edit</a>
-                        <a href="#" 
-                        onclick="event.preventDefault();
-                        document.querySelector( '#delete-students-form-{{ $student->id }}').submit();">Delete</a>
-                        <form id="delete-student-form-{{ $student->id }}" action="{{ route('students.destroy', $student->id) }}" method="student" style="display: none;">
-                            @csrf
-                            @method('DELETE')
-                        </form>
-                    </td>
+										<td>
+											<a href="{{ route('students.show', $student->id) }}" class="btn btn-outline-info">Show</a>
+											<a href="{{ route('students.edit', $student->id) }}" class="btn btn-outline-warning">Edit</a>
+											<a href="#" onclick="event.preventDefault();
+											document.querySelector( '#delete-students-form-{{ $student->id }}').submit();">Delete</a>
+											<form id="delete-student-form-{{ $student->id }}" action="{{ route('students.destroy', $student->id) }}" method="student" style="display: none;">
+												@csrf
+												@method('DELETE')
+											</form>
+										</td>
                     
-                </tr>
-            @endforeach
+               							 </tr>
+            	@endforeach
 									</tbody>
+</table>
 								
 							</div>
  </div>
 						
 		</div>
-                    <script src="js/app.js"></script>
+                    <script src="../js/app.js"></script>
 </body>
 </html>

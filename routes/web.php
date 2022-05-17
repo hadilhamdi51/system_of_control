@@ -1,13 +1,7 @@
 <?php
-use App\Http\Controllers\ReclamationController;
-use App\Http\Controllers\AppController;
-use App\Http\Controllers\MainController;
-use App\Http\Controllers\SaveController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\StudentController;
- 
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,20 +13,20 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/',[AppController::class, 'welcome'] );
 Route::resource('/users',UserController::class);
 Route::resource('/reclamations',ReclamationController::class);
 Route::resource('/students', StudentController::class);
+Route::post('/students/insert_data', 'StudentController@insert');
 //export en pdf 
 Route::get('/exportpdf',[StudentController::class, 'exportpdf'])->name('exportpdf');
-Route::get('/auth/login',[MainController::class,'login'])->name('auth.login');
-Route::get('/auth/register',[SaveController::class,'register'])->name('auth.register');
-Route::post('/auth/save',[SaveController::class, 'save'])->name('auth.save');
-Route::post('/auth/check',[MainController::class, 'check'])->name('auth.check');
-Route::get('/admin-dashboard',function(){
-    return view('admin.dashboard');
-    
-Route::get('/home','HomeController@index')->name('home');
-
+Route::get('/', function () {
+    return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+
+
