@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ReclamationController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,9 @@ Route::post('/students/insert_data', 'StudentController@insert');
 Route::get('/exportpdf',[StudentController::class, 'exportpdf'])->name('exportpdf');
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware(['auth'])->name('welcome');
+
+require __DIR__.'/auth.php';
 
 Route::get('/dashboard', function () {
     return view('dashboard');

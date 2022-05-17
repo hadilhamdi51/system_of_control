@@ -1,8 +1,16 @@
+<link rel="shortcut icon" href="img/icons/iset.png" />
+
+          
+                
+          
 <x-guest-layout>
+
     <x-auth-card>
+       
         <x-slot name="logo">
+            <img src="img/icons/iset.png" alt="Charles Hall" class="img-fluid rounded-circle" width="132" height="132" />
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+      
             </a>
         </x-slot>
 
