@@ -273,7 +273,7 @@
               </a>
 
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                <img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark"> {{ Auth::user()->name }}</span>
+                <img src="{{ Auth::user()->image }}" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark"> {{ Auth::user()->name }}</span>
                
               </a>
 							<div class="dropdown-menu dropdown-menu-end">
