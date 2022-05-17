@@ -51,7 +51,7 @@ class StudentController extends Controller
         $student->created_at = $request->created_at;
         $student->updated_at = $request->updated_at;
         $student>save();
-        return redirect()->route('students.show', $student->id)->with('success', 'students created successfully');
+        return redirect()->route('students.show', $student->id);
     }
 
     /**
@@ -75,7 +75,8 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $student = student::findOrFail($id);
+        return view('students.edit', compact('student'));
     }
 
     /**
@@ -87,23 +88,17 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate($this->validationRules());
-
-  
-
-        $student =student::findOrFail($id);
-        $student = new reclamation();
-        $student->first_name = $request->first_name;
-        $student->last_name  = $request->last_name;
-        $student->email  = $request->email;
-        $student->image  = $request->image;
-        $student->department_id  = $request->department_id;
-        $student->classe  = $request->class;
-        $student->state  = $request->state;
-        $student->created_at = $request->created_at;
-        $student->updated_at = $request->updated_at;
-        $student>save();
-        return redirect()->route('students.show', $reclamation->id)->with('success', 'student created successfully');
+         $validatedData= $request->validate([
+            'first_name' => 'required|max:255',
+            'last_name' => 'required|max:255',
+            'department_id' => 'required',
+            'class' => 'required',
+            'state' => 'required'
+          ]);
+        Student::whereId($id)->update($validatedData);
+    
+        return redirect()->route('students.index');
+    
     }
 
     /**
@@ -114,7 +109,8 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $student = student::findOrFail($id);
+        $student->delete();
     }
     public function exportpdf()
     {    
@@ -123,4 +119,5 @@ class StudentController extends Controller
         $pdf = PDF::loadView('students.absence-pdf');
         return $pdf->download('student.pdf');
     }
+  
 }
