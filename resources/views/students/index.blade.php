@@ -9,6 +9,7 @@
 
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link rel="shortcut icon" href="../img/icons/iset.png" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
 
 	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
@@ -297,13 +298,7 @@
 
 
 
-                    <div  >
-						<div class=" d-flex">
-							<div class="card flex-fill">
-								<div class="card-header mt-9">
-								<i class="fas fa-th-list"> Liste des etudiants</i>
-										<span class="badge rounded-pill bg-warning text-dark" id="nb_etudiants"><?= count($students); ?> etudiants</span>	
-								</div>
+         
 
 
 
@@ -311,73 +306,83 @@
 
 
 
-								@if (Session::get('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>{{Session::get('success')}}</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-    @endif
-<div class="row g-3 align-items-center mt-2">
-	<div class="col-auto"><a class="btn btn-info" href="/exportpdf" role="button">Export PDF+</a></div>
-</div>
+								
     
   
-  <div class="md-card-content"style="overflow-x: auto; border: 1px solid;" >
-<table >
-									<thead >
-										<tr >
-										    <th scope="col">#</th>
-											<th class="d-none d-xl-table-cell">first_name</th>
-											<th class="d-none d-xl-table-cell">last_name</th>
-											<!--<th class="d-none d-xl-table-cell">email</th>
-											<th class="d-none d-xl-table-cell">image</th>-->
-											<th class="d-none d-md-table-cell">department_id</th>
-											<th class="d-none d-md-table-cell">classe</th>
-                                            <th class="d-none d-md-table-cell">state</th>
-										<!--	<th class="d-none d-md-table-cell">created at</th>
-											<th class="d-none d-md-table-cell">update at</th>-->
-										</tr>
-									</thead>
+<div class="card shadow-lg  rounded">
+			<div class="card-header shadow-lg bg-danger text-white">
+				<i class="fas fa-th-list"></i>Liste des etudiants
+        <span class="badge rounded-pill bg-warning text-dark" id="nb_etudiants"><?= count($students); ?> etudiants</span>	
+			</div>
 
-								
-										
-   
-        
-        <tbody>
-             @foreach($students as $student)
-									<tr>
-										
-									<th  scope="row">{{ $student->id }}</th>
-									
-										<td >{{$student->first_name }}</td>
-										<td >{{$student->last_name }}</td>
-										<!-- <td >{{$student->email }}</td>
-									<td >{{$student->image }}</td>-->
-										<td >{{$student->department_id}}</td>
-										<td >{{$student->class}}</td>
-										<td >{{$student->state}}</td>
-            
-           
-          	<!--  <td>{{ Str::substr($student->created_at, 0, 30).'...' }}</td>
-			<td>{{ Str::substr($student->updated_at, 0, 30).'...' }}</td> -->
-  
-										<td>
-											<a href="{{ route('students.show', $student->id) }}" class="btn btn-outline-info">Show</a>
-											<a href="{{ route('students.edit', $student->id) }}" class="btn btn-outline-warning">Edit</a>
-											<a href="#" onclick="event.preventDefault();
-											document.querySelector( '#delete-students-form-{{ $student->id }}').submit();">Delete</a>
-											<form id="delete-student-form-{{ $student->id }}" action="{{ route('students.destroy', $student->id) }}" method="student" style="display: none;">
-												@csrf
-												@method('DELETE')
-											</form>
-										</td>
-                    
-               							 </tr>
-            	@endforeach
-									</tbody>
-</table>
-								
-							</div>
+
+
+				@if (Session::get('success'))
+				<div class="alert alert-success alert-dismissible fade show" role="alert">
+					<strong>{{Session::get('success')}}</strong>
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
+				@endif
+					<div class="row g-3 align-items-center mt-2">
+						<div class="col-auto"><a class="btn btn-info" href="/exportpdf" role="button">Export PDF+</a></div>
+					</div>
+
+
+    <div class="card-body">
+
+        <table class="table table-light table-striped table-bordered"">
+								<thead class=" table-dark">
+											<tr>
+
+												<th scope="col">id</th>
+												<th scope="col">first_name</th>
+												<th scope="col">last_name</th>
+												<th scope="col">absent</th>
+												<th scope="col">department_id</th>
+												<th scope="col">class</th>
+												<th scope="col">state</th>
+												<th></th>
+											</tr>
+								</thead>
+								<tbody>
+								@foreach($students as $student)
+										<tr>
+
+											<th  scope="row">{{ $student->id }}</th>
+														
+															<td >{{$student->first_name }}</td>
+															<td >{{$student->last_name }}</td>
+															<td><a href="#" class="btn btn-outline-info"><i class="bi bi-person-x"></i></a></td>
+															<td >{{$student->department_id}}</td>
+															<td >{{$student->class}}</td>
+															<td >{{$student->state}}</td>
+											<td >
+														<a href="{{ route('students.show', $student->id) }}" class="btn btn-outline-info"><i class="bi bi-eye-fill"></i></a>
+														<a href="{{ route('students.edit', $student->id) }}" class="btn btn-outline-warning"><i class="bi bi-pencil-square"></i></a>
+
+														<a href="#" onclick="event.preventDefault();
+																document.querySelector( '#delete-students-form-{{ $student->id }}').submit();"class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
+																<form id="delete-student-form-{{ $student->id }}" action="{{ route('students.destroy', $student->id) }}" method="student" style="display: none;">
+																	@csrf
+																	@method('DELETE')
+																</form>
+
+
+
+
+
+											</td>
+
+										</tr>
+										@endforeach
+
+								</tbody>
+        </table>
+
+
+
+    </div>
+</div>
  </div>
 						
 		</div>
