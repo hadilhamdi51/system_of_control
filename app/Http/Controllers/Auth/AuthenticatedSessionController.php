@@ -31,9 +31,14 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
+       if(auth()->user()->admin== 1){
+        return redirect()->intended(RouteServiceProvider::ADMIN_HOME);
+       }
+       else{
 
         return redirect()->intended(RouteServiceProvider::HOME);
-    }
+       }
+}
 
     /**
      * Destroy an authenticated session.
@@ -41,6 +46,10 @@ class AuthenticatedSessionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
+
+
+
+
     public function destroy(Request $request)
     {
         Auth::guard('web')->logout();
@@ -51,4 +60,11 @@ class AuthenticatedSessionController extends Controller
 
         return redirect('/');
     }
+    public function redirectTo(){
+    if (auth::user()->admin==1){
+        return '/admin-dashboard';
+
+    }
+    return '/';}
+
 }
