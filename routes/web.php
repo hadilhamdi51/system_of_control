@@ -18,7 +18,6 @@ use App\Http\Controllers\UserController;
 Route::resource('/users',UserController::class);
 Route::resource('/reclamations',ReclamationController::class);
 Route::resource('/students', StudentController::class);
-Route::post('/students/insert_data', 'StudentController@insert');
 //export en pdf 
 Route::get('/exportpdf',[StudentController::class, 'exportpdf'])->name('exportpdf');
 Route::get('/', function () {
