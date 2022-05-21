@@ -14,13 +14,11 @@
 
 	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
-	<title></title>
+	<title>AdminKit Demo - Bootstrap 5 Admin Template</title>
 
-	<link href="css/app.css" rel="stylesheet">
+	<link href="css/app1.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-	
 </head>
-
 <body>
 	<div class="wrapper">
 		<nav id="sidebar" class="sidebar js-sidebar">
@@ -35,13 +33,13 @@
 					</li>
 
 					<li class="sidebar-item active">
-						<a class="sidebar-link" href="index.html">
+						<a class="sidebar-link" href="{{route('dashboard')}}">
               <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-profile.html">
+						<a class="sidebar-link" href="">
               <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
             </a>
 					</li>
@@ -130,7 +128,7 @@
 		</nav>
 
 		<div class="main">
-			<nav class="navbar navbar-expand navbar-light navbar-bg sticky">
+			<nav class="navbar navbar-expand navbar-light navbar-bg">
 				<a class="sidebar-toggle js-sidebar-toggle">
           <i class="hamburger align-self-center"></i>
         </a>
@@ -275,7 +273,8 @@
               </a>
 
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                <img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
+                <img src="{{ Auth::user()->image }}" class="avatar img-fluid rounded me-1" alt="" /> <span class="text-dark"> {{ Auth::user()->name }}</span>
+               
               </a>
 							<div class="dropdown-menu dropdown-menu-end">
 								<a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
@@ -284,14 +283,17 @@
 								<a class="dropdown-item" href="index.html"><i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
 								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">Log out</a>
+								<a class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Log out</a>
+								<form id="logout-form" action="{{route('logout')}}" method="POST" class="d-none">
+									@csrf
+								</form>
 							</div>
 						</li>
 					</ul>
 				</div>
 			</nav>
 
-			<main class="content mt-9">
+			<main class="content">
 				<div class="container-fluid p-0">
 
 					<h1 class="h3 mb-3"><strong>Analytics</strong> Dashboard</h1>
@@ -592,7 +594,7 @@
 		</div>
 	</div>
 
-	<script src="js/app.js"></script>
+	<script src="js/app1.js"></script>
 
 	<script>
 		document.addEventListener("DOMContentLoaded", function() {

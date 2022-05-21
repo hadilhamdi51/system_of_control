@@ -59,7 +59,7 @@ class ReclamationController extends Controller
         $reclamation->save();
         return redirect()->route('reclamations.index')->with('success', 'Post created successfully');
          
-    }
+}
 
     /**
      * Display the specified resource.
