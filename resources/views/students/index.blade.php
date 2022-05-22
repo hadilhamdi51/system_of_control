@@ -12,11 +12,15 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
 
 	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
-
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
     <title>Complaints</title>
     <link href="../css/app1.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    
+	<link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+	
 </head>
     <body>
     <div class="wrapper">
@@ -286,33 +290,12 @@
 				</div>
 			</nav>
 
-
-
-
-
-
-
-
-
-
-
-
-
-         
-
-
-
-							
-
-
-
-								
-    
+   
   
 <div class="card shadow-lg  rounded">
-			<div class="card-header shadow-lg bg-danger text-white">
+			<div class="card-header shadow-lg bg-dark text-white">
 				<i class="fas fa-th-list"></i>Liste des etudiants
-        <span class="badge rounded-pill bg-warning text-dark" id="nb_etudiants"><?= count($students); ?> etudiants</span>	
+        <span class="badge rounded-pill bg-danger text-white" id="nb_etudiants"><?= count($students); ?> etudiants</span>	
 			</div>
 
 
@@ -324,7 +307,9 @@
 				</div>
 				@endif
 					<div class="row g-3 align-items-center mt-2">
-						<div class="col-auto"><a class="btn btn-info" href="/exportpdf" role="button">Export PDF+</a></div>
+
+					<div class="col-auto"><a class="btn btn-danger" href="{{route('students.create')}}"role="button">ADD Student</a></div>
+						<div class="col-auto"><a class="btn btn-danger" href="/exportpdf" role="button">Export PDF+</a></div>
 					</div>
 
 
@@ -361,8 +346,8 @@
 														<a href="{{ route('students.edit', $student->id) }}" class="btn btn-outline-warning"><i class="bi bi-pencil-square"></i></a>
 
 														<a href="#" onclick="event.preventDefault();
-																document.querySelector( '#delete-students-form-{{ $student->id }}').submit();"class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
-																<form id="delete-student-form-{{ $student->id }}" action="{{ route('students.destroy', $student->id) }}" method="student" style="display: none;">
+																document.querySelector( '#delete-student-form-{{ $student->id }}').submit();"class="btn btn-outline-danger"><i class="bi bi-trash"></i></a>
+																<form id="delete-student-form-{{ $student->id }}" action="{{ route('students.destroy', $student->id) }}" method="post" onsubmit="return confirm('are you sure to delete student????')" style="display: none;">
 																	@csrf
 																	@method('DELETE')
 																</form>
@@ -386,6 +371,7 @@
  </div>
 						
 		</div>
+
                     <script src="../js/app.js"></script>
 </body>
 </html>

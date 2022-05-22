@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use PDF;
 
@@ -24,9 +25,9 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('create');
+        return view('students.create');
     }
 
     /**
@@ -37,21 +38,27 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate($this->validationRules());
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'department_id' => 'required',
+            'email' => 'email',
+            'class' => 'required',
+            'state' => 'required',
+        ]);
 
-        // alternative 1
-        $student = new student();
+        $student = new Student;
         $student->first_name = $request->first_name;
-        $student->last_name  = $request->last_name;
-        $student->email  = $request->email;
-        $student->image  = $request->image;
-        $student->department_id  = $request->department_id;
-        $student->classe  = $request->class;
-        $student->state  = $request->state;
-        $student->created_at = $request->created_at;
-        $student->updated_at = $request->updated_at;
-        $student>save();
-        return redirect()->route('students.show', $student->id);
+        $student->last_name = $request->last_name;
+        $student->email = $request->email;
+        $student->department_id = $request->department_id;
+        $student->class = $request->class;
+        $student->state = $request->state;
+        $student->save();
+
+        return redirect()
+            ->route('students.index');
+    
     }
 
     /**
@@ -111,6 +118,7 @@ class StudentController extends Controller
     {
         $student = student::findOrFail($id);
         $student->delete();
+        return redirect()->route('students.index');
     }
     public function exportpdf()
     {    
