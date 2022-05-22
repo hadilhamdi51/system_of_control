@@ -33,25 +33,21 @@
 					</li>
 
 					<li class="sidebar-item active">
-						<a class="sidebar-link" href="{{route('dashboard')}}">
+						<a class="sidebar-link" href="{{route('admin-dashboard')}}">
               <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="">
+						<a class="sidebar-link" href="{{route('admin.profile')}}">
               <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
             </a>
 					</li>
 
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-sign-in.html">
-              <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Sign In</span>
-            </a>
-					</li>
+					
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-sign-up.html">
+						<a class="sidebar-link" href="{{route('admin.register')}}">
               <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Sign Up</span>
             </a>
 					</li>
