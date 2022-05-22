@@ -6,8 +6,8 @@ use App\Http\Controllers\ReclamationController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Notifications\ResetPasswordNotification;
 use App\Http\Controllers\AdminController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -47,10 +47,5 @@ Route::get('/admin-dashboard', function(){
     
     return view('admin-dashboard');
 })->middleware(['auth'])->name('admin-dashboard');
-
-
-Route::get('/forgot-password', function () {
-    return view('auth.forgot-password');
-})->middleware('guest')->name('password.request');
 
 
