@@ -13,7 +13,7 @@
 	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
     <title>Complaints</title>
-    <link href="css/app.css" rel="stylesheet">
+    <link href="css/app1.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     
 </head>
@@ -371,6 +371,6 @@
  </div>
 						
 		</div>
-                    <script src="js/app.js"></script>
+                    <script src="js/app1.js"></script>
 </body>
 </html>
