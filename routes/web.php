@@ -6,8 +6,9 @@ use App\Http\Controllers\ReclamationController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Notifications\ResetPasswordNotification;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SaveController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,6 @@ Route::resource('/users',UserController::class);
 Route::resource('/admin',AdminController::class);
 Route::resource('/reclamations',ReclamationController::class);
 Route::resource('/students', StudentController::class);
-Route::post('/students/insert_data', 'StudentController@insert');
 //export en pdf 
 Route::get('/exportpdf',[StudentController::class, 'exportpdf'])->name('exportpdf');
 Route::get('/', function () {
@@ -45,12 +45,18 @@ require __DIR__.'/auth.php';
 
 Route::get('/admin-dashboard', function(){
     
-    return view('admin-dashboard');
+   return view('admin-dashboard');
 })->middleware(['auth'])->name('admin-dashboard');
 
+Route::get('profile',[AdminController::class,'profile'])->name('admin.profile');
 
-Route::get('/forgot-password', function () {
-    return view('auth.forgot-password');
-})->middleware('guest')->name('password.request');
+   // Route::get('signin',[AdminController::class,'create'])->name('admin.signin');
+    Route::get('register',[SaveController::class,'register'])->name('admin.register');
+    Route::post('/admin/save',[SaveController::class, 'save'])->name('admin.save');
+   // Route::get('settings',[AdminController::class,'settings'])->name('admin.settings');
 
 
+    //Route::post('update-profile-info',[AdminController::class,'updateInfo'])->name('adminUpdateInfo');
+   // Route::post('change-profile-picture',[AdminController::class,'updatePicture'])->name('adminPictureUpdate');
+   // Route::post('change-password',[AdminController::class,'changePassword'])->name('adminChangePassword');
+   
