@@ -8,14 +8,14 @@ use Illuminate\Support\Facades\Hash;
 class SaveController extends Controller
 {
     function register(){
-        return view('auth.register');
+        return view('admin.register');
     }
     function save(Request $request){
         
         //Validate requests
         $request->validate([
             'name'=>'required',
-            'email'=>'required|email|unique:users',
+            'email'=>'required|email|unique:admins',
             'password'=>'required|min:5|max:12'
         ]);
 
@@ -32,11 +32,5 @@ class SaveController extends Controller
              return back()->with('fail','Something went wrong, try again later');
          }
     }
-
-
-
-
-   
-
 
 }
