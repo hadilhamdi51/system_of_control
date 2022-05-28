@@ -315,7 +315,7 @@
 
     <div class="card-body">
 
-        <table class="table table-light table-striped table-bordered"">
+        <table class="table table-light table-striped table-bordered">
 								<thead class=" table-dark">
 											<tr>
 
