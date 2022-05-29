@@ -274,7 +274,7 @@
               </a>
 
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                <img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
+                <img src="{{ Auth::user()->image }}" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">{{ Auth::user()->name }}</span>
               </a>
 							<div class="dropdown-menu dropdown-menu-end">
 								<a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
@@ -306,9 +306,9 @@
 									<h5 class="card-title mb-0">Profile Details</h5>
 								</div>
 								<div class="card-body text-center">
-									<img src="img/avatars/avatar-4.jpg" alt="Christina Mason" class="img-fluid rounded-circle mb-2" width="128" height="128" />
-									<h5 class="card-title mb-0">Christina Mason</h5>
-									<div class="text-muted mb-2">Lead Developer</div>
+									<img src="{{ Auth::user()->image }}" alt="Christina Mason" class="img-fluid rounded-circle mb-2" width="128" height="128" />
+									<h5 class="card-title mb-0">{{ Auth::user()->name }}</h5>
+									<div class="text-muted mb-2">{{ Auth::user()->email }}</div>
 
 									<div>
 										<a class="btn btn-primary btn-sm" href="#">Follow</a>
@@ -502,7 +502,7 @@
 		</div>
 	</div>
 
-	<script src="js/app.js"></script>
+	<script src="js/app1.js"></script>
 
 </body>
 
