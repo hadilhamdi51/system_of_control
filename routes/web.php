@@ -54,6 +54,8 @@ Route::get('profile',[AdminController::class,'profile'])->name('admin.profile');
     Route::get('register',[SaveController::class,'register'])->name('admin.register');
     Route::post('/admin/save',[SaveController::class, 'save'])->name('admin.save');
    // Route::get('settings',[AdminController::class,'settings'])->name('admin.settings');
+   Route::put('/reclamations/{id}',[ReclamationController::class, 'updateEtat'])->name('reclamations.updateEtat');
+//    Route::get('user-delete/{id}',[UserController::class,'delete'])->name('user.delete');
 
 
     //Route::post('update-profile-info',[AdminController::class,'updateInfo'])->name('adminUpdateInfo');

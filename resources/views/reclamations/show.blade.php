@@ -48,11 +48,12 @@
 										<div class="mb-3">
 											<label class="form-label">Created_at</label>
 											<h5 class="card-title">{{ $reclamations->created_at }}</h5>
+											<h5 class="card-title">{{ $reclamations->updated_at }}</h5>
 										</div>
 										<div class="text-center mt-3">
 											<button type="submit" class="btn btn-outline-danger">BACK</button>
-											<button type="submit" class="btn btn-outline-success">DONE</button>
-											<!-- <button type="submit" class="btn btn-lg btn-primary">Sign up</button> -->
+											<button class="btn btn-outline-success" type="submit" ><a href="{{ route('reclamations.updateEtat', $reclamations->id) }}">DONE</a></button>
+											
 										</div>
 									</form>
 								</div>

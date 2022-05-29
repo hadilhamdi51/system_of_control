@@ -16,6 +16,7 @@ class CreateReclamationsTable extends Migration
         Schema::create('reclamations', function (Blueprint $table) {
             $table->id();
             $table->text('description');
+            $table->boolean('etat');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('composant_id');
             $table->unsignedBigInteger('classroom_id');

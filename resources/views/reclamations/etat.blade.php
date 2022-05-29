@@ -294,7 +294,6 @@
 								<div class="card-header mt-9">
 
 									<h5 class="card-title mb-0">Complaints</h5>
-									
 								</div>
 								<table class="table table-hover my-0">
 								<thead>
@@ -306,9 +305,7 @@
 								   <th scope="col">classroom_id</th> 
 								   <th scope="col">created_at</th> 
 								   <th scope="col">updated_at</th> 
-								   <th scope="col">etat</th> 
-								   <th scope="col">action</th> 
-
+								   <th scope="col">test</th> 
                                  </tr>
 								 </thead>
 									<tbody>
@@ -321,9 +318,8 @@
 											<td>{{ $reclamation->classroom_id }}</td>
 											<td>{{ Str::substr($reclamation->created_at, 0, 30).'...' }}</td>
 											<td>{{ Str::substr($reclamation->updated_at, 0, 30).'...' }}</td>
-											<td>{{ $reclamation->etat}} </td>
 											<td>
-                                 <a href="{{ route('reclamations.show', $reclamation->id) }}" class="btn btn-outline-info">Show</a>
+                                 <a href="{{ route('reclamations.etat', $reclamation->id) }}" class="btn btn-outline-info">DONE</a>
 								 
 				           </td>		
 					</tr> 

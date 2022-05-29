@@ -81,6 +81,17 @@ class ReclamationController extends Controller
         $reclamations = reclamation::findOrFail($id);
         return view('reclamations.edit', compact('reclamation'));
     }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $event
+     * @return \Illuminate\Http\Response
+     */
+    public function handle(reclamcreateEvent $event)
+    {
+        dd($event->reclamation->action . 'DONE' );
+    }
+
 
     /**
      * Update the specified resource in storage.
@@ -103,6 +114,13 @@ class ReclamationController extends Controller
     
     }
 
+    public function updateEtat(Request $request, $id)
+    {
+        $validatedData = [$etat = 1];
+        Reclamation::whereId($id)->update($validatedData);
+        return redirect()->route('reclamations.index');
+    }
+    
     /**
      * Remove the specified resource from storage.
      *
