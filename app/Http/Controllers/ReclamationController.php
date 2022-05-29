@@ -17,49 +17,45 @@ class ReclamationController extends Controller
     public function index()
     {
         $reclamations=reclamation::all();
-        return view('reclamations.index',compact('reclamations')); 
-
+        return view('reclamations.index',compact('reclamations'));
     }
-    public function addreclam()
-    {
-        $reclamations=reclamation::all();
-        return view('reclamations.addreclam',compact('reclamations')); 
 
-    }
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        $composants= composant::all();
-        $classes= classroom::all();
-        $users= User::all();
-        return view('reclamations.create', compact('composants', 'classes','users'));
-       
+        return view('reclamations.create');
     }
 
     /**
-     * Store a newly created resource in storage.   
+     * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $request->validate($this->validationRules());
+        $request->validate([
+            'description' => 'required',
+            'user_id' => 'required',
+            'composant_id' => 'required',
+            'classroom_id' => 'required',
+        ]);
 
-        // alternative 1
-        $reclamation = new reclamation();
+        $reclamation = new Reclamation;
         $reclamation->description = $request->description;
         $reclamation->user_id = $request->user_id;
-        $reclamation->classroom_id = $request->classroom_id;
         $reclamation->composant_id = $request->composant_id;
+        $reclamation->classroom_id = $request->classroom_id;
         $reclamation->save();
-        return redirect()->route('reclamations.index')->with('success', 'Post created successfully');
-         
-}
+
+        return redirect()
+            ->route('reclamations.index');
+    
+    }
 
     /**
      * Display the specified resource.
@@ -71,6 +67,7 @@ class ReclamationController extends Controller
     {
         $reclamations = reclamation::findOrFail($id);
         return view('reclamations.show', compact('reclamations'));
+        
     }
 
     /**
@@ -94,19 +91,15 @@ class ReclamationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate($this->validationRules());
-
-        $user = user::findOrFail($id);
-        $user = new reclamation();
-        $user->name = $request->name;
-        $user->email  = $request->email;
-        $user->email_verified_at  = $request->email_verified_at;
-        $user->password  = $request->password;
-        $user->remember_token  = $remember_token;
-        $user->created_at = $request->created_at;
-        $user->updated_at = $request->updated_at;
-        $user>save();
-        return redirect()->route('users.show', $reclamation->id)->with('success', 'user created successfully');
+        $validatedData= $request->validate([
+            'description' => 'required',
+            'user_id' => 'required',
+            'composant_id' => 'required',
+            'classroom_id' => 'required',
+          ]);
+        Reclamation::whereId($id)->update($validatedData);
+    
+        return redirect()->route('reclamations.index');
     
     }
 
@@ -118,15 +111,8 @@ class ReclamationController extends Controller
      */
     public function destroy($id)
     {
-        //
+//
     }
-    private function validationRules()
-    {
-        return [
-            'descreption' => ['required', 'min:20', 'max:255'],
-            'created_at' => 'required|min:10',
-            'updated_at' => 'required|min:10',
-            
-        ];
-    }
+ 
+  
 }
