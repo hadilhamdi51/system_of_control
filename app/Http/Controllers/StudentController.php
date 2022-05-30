@@ -107,6 +107,25 @@ class StudentController extends Controller
         return redirect()->route('students.index');
     
     }
+     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    /*public function editabs(Request $request, $id)
+    {
+         $validatedData= $request->validate([
+        'state' => 'required'
+          ]);
+        Student::whereId($id)->edit($validatedData);
+        return redirect()->route('students.index');
+    
+        
+    
+    }*/
+  
 
     /**
      * Remove the specified resource from storage.
@@ -120,6 +139,16 @@ class StudentController extends Controller
         $student->delete();
         return redirect()->route('students.index');
     }
+    public function updateabs($id)
+    {
+        $student = student::findOrFail($id);
+     $student = new Student;
+        $student->state = 'y';
+        $student->save();
+
+        return redirect()
+            ->route('students.index');
+    }
     public function exportpdf()
     {    
         $students=student::all();
@@ -127,5 +156,6 @@ class StudentController extends Controller
         $pdf = PDF::loadView('students.absence-pdf');
         return $pdf->download('student.pdf');
     }
-  
+    
+   
 }

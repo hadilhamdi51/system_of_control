@@ -28,10 +28,10 @@
 </head>
 <body>
 
-<h1>fiche d'absence</h1>
+<h1> Liste des etudiants</h1>
 <h5><div class="card-header mt-9">
-								<i class="fas fa-th-list"> Liste des etudiants</i>
-										<span class="badge rounded-pill bg-warning text-dark" id="nb_etudiants"><?= count($students); ?> etudiants</span>
+
+										<!--<span class="badge rounded-pill bg-warning text-dark" id="nb_etudiants">< ?= cou nt( $stud ents); ?> etudiants</span>-->
                     <br>
                     <?php
 
