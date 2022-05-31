@@ -292,10 +292,13 @@
 						<div class=" d-flex">
 							<div class="card flex-fill">
 								<div class="card-header mt-9">
-
-									<h5 class="card-title mb-0">Complaints</h5>
-									
+									<h5 class="card-title mb-0">Complaints</h5>	
+									<br>
+									<a href="{{ route('reclamations.create')}}" class="btn btn-outline-warning float-left">Ajouter</a>
 								</div>
+								
+ 
+
 								<table class="table table-hover my-0">
 								<thead>
                                  <tr>
