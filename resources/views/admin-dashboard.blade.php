@@ -45,8 +45,13 @@
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-sign-in.html">
-              <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Histories</span>
+						<a class="sidebar-link" href="{{route('users.index')}}">
+              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Users</span>
+            </a>
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{{route('reclamations.index')}}">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Complaints</span>
             </a>
 					</li>
 
@@ -56,11 +61,7 @@
             </a>
 					</li>
 
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-blank.html">
-              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Blank</span>
-            </a>
-					</li>
+					
 
 					<li class="sidebar-header">
 						Tools & Components

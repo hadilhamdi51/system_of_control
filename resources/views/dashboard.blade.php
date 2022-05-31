@@ -49,8 +49,8 @@
 					
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-blank.html">
-              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Blank</span>
+						<a class="sidebar-link" href="{{route('reclamations.create')}}">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">My Complaints</span>
             </a>
 					</li>
 

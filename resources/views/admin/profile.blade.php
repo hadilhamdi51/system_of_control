@@ -13,11 +13,14 @@
 	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
 
 	<link rel="canonical" href="https://demo-basic.adminkit.io/pages-profile.html" />
-
-	<title>Profile</title>
-
 	<link href="css/app1.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<title>Profile *</title>
+
+
 </head>
 
 <body>
@@ -33,35 +36,36 @@
 						Pages
 					</li>
 
-					<li class="sidebar-item">
+					<li class="sidebar-item active">
 						<a class="sidebar-link" href="{{route('admin-dashboard')}}">
               <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
             </a>
 					</li>
 
-					<li class="sidebar-item active">
-						<a class="sidebar-link" href="pages-profile.html">
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{{route('admin.profile')}}">
               <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-sign-in.html">
-              <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Sign In</span>
+						<a class="sidebar-link" href="{{route('users.index')}}">
+              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Users</span>
+            </a>
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{{route('reclamations.index')}}">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Complaints</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-sign-up.html">
+						<a class="sidebar-link" href="{{route('admin.register')}}">
               <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Sign Up</span>
             </a>
 					</li>
 
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-blank.html">
-              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Blank</span>
-            </a>
-					</li>
+					
 
 					<li class="sidebar-header">
 						Tools & Components
@@ -274,7 +278,8 @@
               </a>
 
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                <img src="{{ Auth::user()->image }}" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">{{ Auth::user()->name }}</span>
+                <img src="{{ Auth::user()->image }}" class="avatar img-fluid rounded me-1" alt="" /> <span class="text-dark"> {{ Auth::user()->name }}</span>
+               
               </a>
 							<div class="dropdown-menu dropdown-menu-end">
 								<a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
@@ -283,223 +288,161 @@
 								<a class="dropdown-item" href="index.html"><i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
 								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">Log out</a>
+								<a class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Log out</a>
+								<form id="logout-form" action="{{route('logout')}}" method="POST" class="d-none">
+									@csrf
+								</form>
 							</div>
 						</li>
 					</ul>
 				</div>
 			</nav>
-
-			<main class="content">
-				<div class="container-fluid p-0">
-
-					<div class="mb-3">
-						<h1 class="h3 d-inline align-middle">Profile</h1>
-						<a class="badge bg-dark text-white ms-2" href="upgrade-to-pro.html">
-      Get more page examples
-  </a>
-					</div>
-					<div class="row">
-						<div class="col-md-4 col-xl-3">
-							<div class="card mb-3">
-								<div class="card-header">
-									<h5 class="card-title mb-0">Profile Details</h5>
-								</div>
-								<div class="card-body text-center">
-									<img src="{{ Auth::user()->image }}" alt="Christina Mason" class="img-fluid rounded-circle mb-2" width="128" height="128" />
-									<h5 class="card-title mb-0">{{ Auth::user()->name }}</h5>
-									<div class="text-muted mb-2">{{ Auth::user()->email }}</div>
-
-									<div>
-										<a class="btn btn-primary btn-sm" href="#">Follow</a>
-										<a class="btn btn-primary btn-sm" href="#"><span data-feather="message-square"></span> Message</a>
-									</div>
-								</div>
-								<hr class="my-0" />
-								<div class="card-body">
-									<h5 class="h6 card-title">Skills</h5>
-									<a href="#" class="badge bg-primary me-1 my-1">HTML</a>
-									<a href="#" class="badge bg-primary me-1 my-1">JavaScript</a>
-									<a href="#" class="badge bg-primary me-1 my-1">Sass</a>
-									<a href="#" class="badge bg-primary me-1 my-1">Angular</a>
-									<a href="#" class="badge bg-primary me-1 my-1">Vue</a>
-									<a href="#" class="badge bg-primary me-1 my-1">React</a>
-									<a href="#" class="badge bg-primary me-1 my-1">Redux</a>
-									<a href="#" class="badge bg-primary me-1 my-1">UI</a>
-									<a href="#" class="badge bg-primary me-1 my-1">UX</a>
-								</div>
-								<hr class="my-0" />
-								<div class="card-body">
-									<h5 class="h6 card-title">About</h5>
-									<ul class="list-unstyled mb-0">
-										<li class="mb-1"><span data-feather="home" class="feather-sm me-1"></span> Lives in <a href="#">San Francisco, SA</a></li>
-
-										<li class="mb-1"><span data-feather="briefcase" class="feather-sm me-1"></span> Works at <a href="#">GitHub</a></li>
-										<li class="mb-1"><span data-feather="map-pin" class="feather-sm me-1"></span> From <a href="#">Boston</a></li>
-									</ul>
-								</div>
-								<hr class="my-0" />
-								<div class="card-body">
-									<h5 class="h6 card-title">Elsewhere</h5>
-									<ul class="list-unstyled mb-0">
-										<li class="mb-1"><a href="#">staciehall.co</a></li>
-										<li class="mb-1"><a href="#">Twitter</a></li>
-										<li class="mb-1"><a href="#">Facebook</a></li>
-										<li class="mb-1"><a href="#">Instagram</a></li>
-										<li class="mb-1"><a href="#">LinkedIn</a></li>
-									</ul>
-								</div>
-							</div>
+	<div class="container emp-profile">
+		<form method="post">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="profile-img">
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+						<div class="file btn btn-lg btn-primary">
+							Change Photo
+							<input type="file" name="file"/>
 						</div>
-
-						<div class="col-md-8 col-xl-9">
-							<div class="card">
-								<div class="card-header">
-
-									<h5 class="card-title mb-0">Activities</h5>
-								</div>
-								<div class="card-body h-100">
-
-									<div class="d-flex align-items-start">
-										<img src="img/avatars/avatar-5.jpg" width="36" height="36" class="rounded-circle me-2" alt="Vanessa Tucker">
-										<div class="flex-grow-1">
-											<small class="float-end text-navy">5m ago</small>
-											<strong>Vanessa Tucker</strong> started following <strong>Christina Mason</strong><br />
-											<small class="text-muted">Today 7:51 pm</small><br />
-
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="profile-head">
+								<h5>
+									Kshiti Ghelani
+								</h5>
+								<h6>
+									Web Developer and Designer
+								</h6>
+								<p class="proile-rating">RANKINGS : <span>8/10</span></p>
+						<ul class="nav nav-tabs" id="myTab" role="tablist">
+							<li class="nav-item">
+								<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="profile-work">
+						<p>WORK LINK</p>
+						<a href="">Website Link</a><br/>
+						<a href="">Bootsnipp Profile</a><br/>
+						<a href="">Bootply Profile</a>
+						<p>SKILLS</p>
+						<a href="">Web Designer</a><br/>
+						<a href="">Web Developer</a><br/>
+						<a href="">WordPress</a><br/>
+						<a href="">WooCommerce</a><br/>
+						<a href="">PHP, .Net</a><br/>
+					</div>
+				</div>
+				<div class="col-md-8">
+					<div class="tab-content profile-tab" id="myTabContent">
+						<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+									<div class="row">
+										<div class="col-md-6">
+											<label>User Id</label>
+										</div>
+										<div class="col-md-6">
+											<p>Kshiti123</p>
 										</div>
 									</div>
-
-									<hr />
-									<div class="d-flex align-items-start">
-										<img src="img/avatars/avatar.jpg" width="36" height="36" class="rounded-circle me-2" alt="Charles Hall">
-										<div class="flex-grow-1">
-											<small class="float-end text-navy">30m ago</small>
-											<strong>Charles Hall</strong> posted something on <strong>Christina Mason</strong>'s timeline<br />
-											<small class="text-muted">Today 7:21 pm</small>
-
-											<div class="border text-sm text-muted p-2 mt-1">
-												Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus
-												pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.
-											</div>
-
-											<a href="#" class="btn btn-sm btn-danger mt-1"><i class="feather-sm" data-feather="heart"></i> Like</a>
+									<div class="row">
+										<div class="col-md-6">
+											<label>Name</label>
+										</div>
+										<div class="col-md-6">
+											<p>Kshiti Ghelani</p>
 										</div>
 									</div>
-
-									<hr />
-									<div class="d-flex align-items-start">
-										<img src="img/avatars/avatar-4.jpg" width="36" height="36" class="rounded-circle me-2" alt="Christina Mason">
-										<div class="flex-grow-1">
-											<small class="float-end text-navy">1h ago</small>
-											<strong>Christina Mason</strong> posted a new blog<br />
-
-											<small class="text-muted">Today 6:35 pm</small>
+									<div class="row">
+										<div class="col-md-6">
+											<label>Email</label>
+										</div>
+										<div class="col-md-6">
+											<p>kshitighelani@gmail.com</p>
 										</div>
 									</div>
-
-									<hr />
-									<div class="d-flex align-items-start">
-										<img src="img/avatars/avatar-2.jpg" width="36" height="36" class="rounded-circle me-2" alt="William Harris">
-										<div class="flex-grow-1">
-											<small class="float-end text-navy">3h ago</small>
-											<strong>William Harris</strong> posted two photos on <strong>Christina Mason</strong>'s timeline<br />
-											<small class="text-muted">Today 5:12 pm</small>
-
-											<div class="row g-0 mt-1">
-												<div class="col-6 col-md-4 col-lg-4 col-xl-3">
-													<img src="img/photos/unsplash-1.jpg" class="img-fluid pe-2" alt="Unsplash">
-												</div>
-												<div class="col-6 col-md-4 col-lg-4 col-xl-3">
-													<img src="img/photos/unsplash-2.jpg" class="img-fluid pe-2" alt="Unsplash">
-												</div>
-											</div>
-
-											<a href="#" class="btn btn-sm btn-danger mt-1"><i class="feather-sm" data-feather="heart"></i> Like</a>
+									<div class="row">
+										<div class="col-md-6">
+											<label>Phone</label>
+										</div>
+										<div class="col-md-6">
+											<p>123 456 7890</p>
 										</div>
 									</div>
-
-									<hr />
-									<div class="d-flex align-items-start">
-										<img src="img/avatars/avatar-2.jpg" width="36" height="36" class="rounded-circle me-2" alt="William Harris">
-										<div class="flex-grow-1">
-											<small class="float-end text-navy">1d ago</small>
-											<strong>William Harris</strong> started following <strong>Christina Mason</strong><br />
-											<small class="text-muted">Yesterday 3:12 pm</small>
-
-											<div class="d-flex align-items-start mt-1">
-												<a class="pe-3" href="#">
-                <img src="img/avatars/avatar-4.jpg" width="36" height="36" class="rounded-circle me-2" alt="Christina Mason">
-              </a>
-												<div class="flex-grow-1">
-													<div class="border text-sm text-muted p-2 mt-1">
-														Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.
-													</div>
-												</div>
-											</div>
+									<div class="row">
+										<div class="col-md-6">
+											<label>Profession</label>
+										</div>
+										<div class="col-md-6">
+											<p>Web Developer and Designer</p>
 										</div>
 									</div>
-
-									<hr />
-									<div class="d-flex align-items-start">
-										<img src="img/avatars/avatar-4.jpg" width="36" height="36" class="rounded-circle me-2" alt="Christina Mason">
-										<div class="flex-grow-1">
-											<small class="float-end text-navy">1d ago</small>
-											<strong>Christina Mason</strong> posted a new blog<br />
-											<small class="text-muted">Yesterday 2:43 pm</small>
+						</div>
+						<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+									<div class="row">
+										<div class="col-md-6">
+											<label>Experience</label>
+										</div>
+										<div class="col-md-6">
+											<p>Expert</p>
 										</div>
 									</div>
-
-									<hr />
-									<div class="d-flex align-items-start">
-										<img src="img/avatars/avatar.jpg" width="36" height="36" class="rounded-circle me-2" alt="Charles Hall">
-										<div class="flex-grow-1">
-											<small class="float-end text-navy">1d ago</small>
-											<strong>Charles Hall</strong> started following <strong>Christina Mason</strong><br />
-											<small class="text-muted">Yesterdag 1:51 pm</small>
+									<div class="row">
+										<div class="col-md-6">
+											<label>Hourly Rate</label>
+										</div>
+										<div class="col-md-6">
+											<p>10$/hr</p>
 										</div>
 									</div>
-
-									<hr />
-									<div class="d-grid">
-										<a href="#" class="btn btn-primary">Load more</a>
+									<div class="row">
+										<div class="col-md-6">
+											<label>Total Projects</label>
+										</div>
+										<div class="col-md-6">
+											<p>230</p>
+										</div>
 									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<label>English Level</label>
+										</div>
+										<div class="col-md-6">
+											<p>Expert</p>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<label>Availability</label>
+										</div>
+										<div class="col-md-6">
+											<p>6 months</p>
+										</div>
+									</div>
+							<div class="row">
+								<div class="col-md-12">
+									<label>Your Bio</label><br/>
+									<p>Your detail description</p>
 								</div>
 							</div>
 						</div>
 					</div>
-
 				</div>
-			</main>
-
-			<footer class="footer">
-				<div class="container-fluid">
-					<div class="row text-muted">
-						<div class="col-6 text-start">
-							<p class="mb-0">
-								<a class="text-muted" href="https://adminkit.io/" target="_blank"><strong>AdminKit</strong></a> &copy;
-							</p>
-						</div>
-						<div class="col-6 text-end">
-							<ul class="list-inline">
-								<li class="list-inline-item">
-									<a class="text-muted" href="https://adminkit.io/" target="_blank">Support</a>
-								</li>
-								<li class="list-inline-item">
-									<a class="text-muted" href="https://adminkit.io/" target="_blank">Help Center</a>
-								</li>
-								<li class="list-inline-item">
-									<a class="text-muted" href="https://adminkit.io/" target="_blank">Privacy</a>
-								</li>
-								<li class="list-inline-item">
-									<a class="text-muted" href="https://adminkit.io/" target="_blank">Terms</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</footer>
-		</div>
+			</div>
+		</form>           
 	</div>
 
 	<script src="js/app1.js"></script>
