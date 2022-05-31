@@ -27,7 +27,7 @@ class ReclamationController extends Controller
      */
     public function create(Request $request)
     {
-        return view('reclamations.create');
+        return view('reclamations.create')->with('success', 'Reclamation created successfully');
     }
 
     /**
@@ -39,22 +39,25 @@ class ReclamationController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'description' => 'required',
+          
             'user_id' => 'required',
             'composant_id' => 'required',
             'classroom_id' => 'required',
+            'description' => 'required',
+            'etat' => 'required',
         ]);
 
         $reclamation = new Reclamation;
-        $reclamation->description = $request->description;
+       
         $reclamation->user_id = $request->user_id;
         $reclamation->composant_id = $request->composant_id;
         $reclamation->classroom_id = $request->classroom_id;
+        $reclamation->description = $request->description;
+        $reclamation->etat = $request->etat;
         $reclamation->save();
 
-        return redirect()
-            ->route('reclamations.index');
-    
+       
+        return redirect()->route('reclamations.index');
     }
 
     /**
@@ -81,16 +84,6 @@ class ReclamationController extends Controller
         $reclamations = reclamation::findOrFail($id);
         return view('reclamations.edit', compact('reclamation'));
     }
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $event
-     * @return \Illuminate\Http\Response
-     */
-    public function handle(reclamcreateEvent $event)
-    {
-        dd($event->reclamation->action . 'DONE' );
-    }
 
 
     /**
@@ -114,12 +107,12 @@ class ReclamationController extends Controller
     
     }
 
-    public function updateEtat(Request $request, $id)
+    /*public function updateEtat(Request $request, $id)
     {
         $validatedData = [$etat = 1];
         Reclamation::whereId($id)->update($validatedData);
         return redirect()->route('reclamations.index');
-    }
+    }*/
     
     /**
      * Remove the specified resource from storage.
