@@ -6,6 +6,8 @@ use App\Models\composant;
 use App\Models\classroom;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\collections;
 
 class ReclamationController extends Controller
 {
@@ -16,8 +18,8 @@ class ReclamationController extends Controller
      */
     public function index()
     {
-        $reclamations=reclamation::all();
-        return view('reclamations.index',compact('reclamations'));
+        return reclamation:: collections (Auth :: user()-> reclamations);
+       /*return view('reclamations.index',compact('reclamations'));*/
     }
 
     /**
