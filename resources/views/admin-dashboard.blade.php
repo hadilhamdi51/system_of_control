@@ -56,6 +56,15 @@
             </a>
 					</li>
 
+
+
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{{route('subject.index')}}">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Histories</span>
+            </a>
+					</li>
+
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="{{route('admin.register')}}">
               <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Sign Up</span>
