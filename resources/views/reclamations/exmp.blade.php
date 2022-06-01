@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,7 +14,7 @@
 
 	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
-	<title>Admin-Dashboard</title>
+	<title>Dashboard</title>
 
 	<link href="css/app1.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -25,7 +24,7 @@
 		<nav id="sidebar" class="sidebar js-sidebar">
 			<div class="sidebar-content js-simplebar">
 				<a class="sidebar-brand" href="index.html">
-          <span class="align-middle">AdminKit</span>
+          <span class="align-middle">UserKit</span>
         </a>
 
 				<ul class="sidebar-nav">
@@ -34,44 +33,31 @@
 					</li>
 
 					<li class="sidebar-item active">
-						<a class="sidebar-link" href="{{route('admin-dashboard')}}">
+						<a class="sidebar-link" href="{{route('dashboard')}}">
               <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="{{route('admin.profile')}}">
+						<a class="sidebar-link" href="">
               <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
             </a>
 					</li>
 
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="{{route('users.index')}}">
-              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Users</span>
-            </a>
-					</li>
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="{{route('reclamations.exmp')}}">
-              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Complaints</span>
-            </a>
-					</li>
-
-
-
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="{{route('subject.sub')}}">
-              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Histories</span>
-            </a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="{{route('admin.register')}}">
-              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Sign Up</span>
-            </a>
-					</li>
+					
 
 					
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{{route('reclamations.index')}}">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">My Complaints</span>
+            </a>
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{{route('subject.index')}}">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">My Histories</span>
+            </a>
+					</li>
 
 					<li class="sidebar-header">
 						Tools & Components
