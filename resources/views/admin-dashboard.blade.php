@@ -60,7 +60,7 @@
 
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="{{route('subject.index')}}">
+						<a class="sidebar-link" href="{{route('subject.sub')}}">
               <i class="align-middle" data-feather="book"></i> <span class="align-middle">Histories</span>
             </a>
 					</li>

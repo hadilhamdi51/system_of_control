@@ -54,6 +54,7 @@ Route::get('/admin-dashboard', function(){
 
 Route::get('profile',[AdminController::class,'profile'])->name('admin.profile');
 Route::get('exmp',[ReclamationController::class,'exmp'])->name('reclamations.exmp');
+Route::get('sub',[SubjectController::class,'sub'])->name('subject.sub');
 
    // Route::get('signin',[AdminController::class,'create'])->name('admin.signin');
     Route::get('register',[SaveController::class,'register'])->name('admin.register');
