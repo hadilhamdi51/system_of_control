@@ -1,6 +1,9 @@
-<html>
-    <head>
-    <meta charset="utf-8">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta name="csrf-token" content="{{ csrf_token() }}">
+	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
@@ -12,13 +15,13 @@
 
 	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
-    <title>Complaints</title>
-    <link href="css/app1.css" rel="stylesheet">
+	<title>Admin-Dashboard</title>
+
+	<link href="css/app1.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    
 </head>
-    <body>
-    <div class="wrapper">
+<body>
+	<div class="wrapper">
 		<nav id="sidebar" class="sidebar js-sidebar">
 			<div class="sidebar-content js-simplebar">
 				<a class="sidebar-brand" href="index.html">
@@ -31,34 +34,44 @@
 					</li>
 
 					<li class="sidebar-item active">
-						<a class="sidebar-link" href="index.html">
+						<a class="sidebar-link" href="{{route('admin-dashboard')}}">
               <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-profile.html">
+						<a class="sidebar-link" href="{{route('admin.profile')}}">
               <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-sign-in.html">
-              <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Sign In</span>
+						<a class="sidebar-link" href="{{route('users.index')}}">
+              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Users</span>
+            </a>
+					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{{route('reclamations.exmp')}}">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Complaints</span>
+            </a>
+					</li>
+
+
+
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{{route('subject.sub')}}">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Histories</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-sign-up.html">
+						<a class="sidebar-link" href="{{route('admin.register')}}">
               <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Sign Up</span>
             </a>
 					</li>
 
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-blank.html">
-              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Blank</span>
-            </a>
-					</li>
+					
 
 					<li class="sidebar-header">
 						Tools & Components
@@ -110,7 +123,8 @@
             </a>
 					</li>
 				</ul>
-                <div class="sidebar-cta">
+
+				<div class="sidebar-cta">
 					<div class="sidebar-cta-content">
 						<strong class="d-inline-block mb-2">Upgrade to Pro</strong>
 						<div class="mb-3 text-sm">
@@ -123,8 +137,9 @@
 				</div>
 			</div>
 		</nav>
-        <div class="main">
-			<nav class="navbar navbar-expand navbar-light navbar-bg sticky">
+
+		<div class="main">
+			<nav class="navbar navbar-expand navbar-light navbar-bg">
 				<a class="sidebar-toggle js-sidebar-toggle">
           <i class="hamburger align-self-center"></i>
         </a>
@@ -269,7 +284,8 @@
               </a>
 
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                <img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
+                <img src="{{ Auth::user()->image }}" class="avatar img-fluid rounded me-1" alt="" /> <span class="text-dark"> {{ Auth::user()->name }}</span>
+               
               </a>
 							<div class="dropdown-menu dropdown-menu-end">
 								<a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
@@ -278,7 +294,10 @@
 								<a class="dropdown-item" href="index.html"><i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
 								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">Log out</a>
+								<a class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Log out</a>
+								<form id="logout-form" action="{{route('logout')}}" method="POST" class="d-none">
+									@csrf
+								</form>
 							</div>
 						</li>
 					</ul>
