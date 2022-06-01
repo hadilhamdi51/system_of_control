@@ -302,7 +302,7 @@
 							<div class="card flex-fill">
 								<div class="card-header mt-9">
 
-									<h5 class="card-title mb-0">List Of User</h5>
+									<h5 class="card-title mb-0">List Of Users</h5>
 								</div>
 
 
@@ -327,12 +327,15 @@
 								<table   >
 									<thead >
 										<tr >
-											<th class="d-none d-xl-table-cell">Avatar</th>
-											<th class="d-none d-xl-table-cell">Name</th>
+										    <th scope="col">#</th>
+											<th class="d-none d-xl-table-cell">Nom</th>
 											<th class="d-none d-xl-table-cell">Email</th>
+											<th class="d-none d-xl-table-cell">Verifier Email</th>
+											
 											
 											<th class="d-none d-md-table-cell">created at</th>
 											<th class="d-none d-md-table-cell">update at</th>
+											<th class="d-none d-md-table-cell">role</th>
 											<th class="d-none d-md-table-cell">Action</th>
 										</tr>
 									</thead>
@@ -345,14 +348,15 @@
              @foreach($users as $user)
         <tr>
             
-			<td ></td>
-            <td >{{$user->image }}{{$user->name }}</td>
+		<th  scope="row">{{ $user->id }}</th>
+		
+            <td >{{$user->name }}</td>
 			<td >{{$user->email }}</td>
-            
+            <td >{{$user->email_verified_at }}</td>
 			
             <td>{{ Str::substr($user->created_at, 0, 30).'...' }}</td>
 			<td>{{ Str::substr($user->updated_at, 0, 30).'...' }}</td>
-  
+			<td >{{$user->admin }}</td>
                     <td>
                         <a href="{{ route('users.show', $user->id) }}"class="btn btn-outline-info">Show</a>
                         <a href="{{ route('users.edit', $user->id) }}" class="btn btn-outline-warning">Edit</a>

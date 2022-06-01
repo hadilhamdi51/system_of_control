@@ -18,66 +18,144 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 
-
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"  rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"  rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"  rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"  rel="stylesheet">
 	<title>Details</title>
+<style>
+	* {
+    margin: 0;
+    padding: 0
+}
 
+body {
+    background-color: rgb(40, 43, 60);
+}
+
+.card {
+    width: 350px;
+    background-color: #efefef;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.image img {
+    transition: all 0.5s
+}
+
+.card:hover .image img {
+    transform: scale(1.5)
+}
+
+.btn {
+    height: 140px;
+    width: 140px;
+    border-radius: 50%
+}
+
+.name {
+    font-size: 22px;
+    font-weight: bold
+}
+
+.idd {
+    font-size: 14px;
+    font-weight: 600
+}
+
+.idd1 {
+    font-size: 12px
+}
+
+.number {
+    font-size: 22px;
+    font-weight: bold
+}
+
+.follow {
+    font-size: 12px;
+    font-weight: 500;
+    color: #444444
+}
+
+.btn1 {
+    height: 40px;
+    width: 150px;
+    border: none;
+    background-color: #000;
+    color: #aeaeae;
+    font-size: 15px
+}
+
+.text span {
+    font-size: 13px;
+    color: #545454;
+    font-weight: 500
+}
+
+.icons i {
+    font-size: 19px
+}
+
+hr .new1 {
+    border: 1px solid
+}
+
+.join {
+    font-size: 14px;
+    color: #a0a0a0;
+    font-weight: bold
+}
+
+.date {
+    background-color: #ccc
+}
+#hadil{
+	
+}
+</style>
 	
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-	<section class="vh-100" style="background-color: #eee;">
-		<div class="container py-5 h-100">
-		  <div class="row d-flex justify-content-center align-items-center h-100">
-			<div class="col-md-12 col-xl-4">
-	  
-			  <div class="card" style="border-radius: 15px;">
-				<div class="card-body text-center">
-				  <div class="mt-3 mb-4">
-					<img src="{{ $user->image }}"
-					  class="rounded-circle img-fluid" style="width: 100px;" />
-				  </div>
-				  <h4 class="mb-2">{{ $user->name }}</h4>
-				  <p class="text-muted mb-4">@Programmer <span class="mx-2">|</span> <a
-					  href="#!">mdbootstrap.com</a></p>
-				  <div class="mb-4 pb-2">
-					<button type="button" class="btn btn-outline-primary btn-floating">
-					  <i class="fab fa-facebook-f fa-lg"></i>
-					</button>
-					<button type="button" class="btn btn-outline-primary btn-floating">
-					  <i class="fab fa-twitter fa-lg"></i>
-					</button>
-					<button type="button" class="btn btn-outline-primary btn-floating">
-					  <i class="fab fa-skype fa-lg"></i>
-					</button>
-				  </div>
-				  <button type="button" class="btn btn-primary btn-rounded btn-lg">
-					Message now
-				  </button>
-				  <div class="d-flex justify-content-between text-center mt-5 mb-2">
-					<div>
-					  <p class="mb-2 h5">8471</p>
-					  <p class="text-muted mb-0">Wallets Balance</p>
-					</div>
-					<div class="px-3">
-					  <p class="mb-2 h5">8512</p>
-					  <p class="text-muted mb-0">Income amounts</p>
-					</div>
-					<div>
-					  <p class="mb-2 h5">4751</p>
-					  <p class="text-muted mb-0">Total Transactions</p>
-					</div>
-				  </div>
-				</div>
-			  </div>
-	  
-			</div>
-		  </div>
-		</div>
-	  </section>
+	
 
 
+
+
+
+	  <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
+		   <div class="card p-4"> <div class=" image d-flex flex-column justify-content-center align-items-center"> 
+			   <button class="btn btn-secondary"> 
+				   <img src="{{ $user->image }}" height="100" width="100" /></button>
+				    <span class="name mt-3">{{ $user->name }}</span>
+					 <span class="idd">{{ $user->email }}</span> 
+					 <div class="d-flex flex-row justify-content-center align-items-center gap-2"> 
+						 <span class="idd1"></span> 
+						 <span><i class=""></i>
+						</span> </div> <div class="d-flex flex-row justify-content-center align-items-center mt-3">
+							 <span class="number"> <span class="follow"></span>
+							</span> </div> <div class=" d-flex mt-2">
+								 <a class="btn1 btn-dark" href="{{ route('users.edit', $user->id) }} "> Edit Profile</a>
+								 </div> <div class="text mt-3">
+									  <span><br><br>  </span> 
+									</div>
+									 <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center">
+										  <span><i class="fa fa-twitter"></i>
+										</span> 
+										<span><i class="fa fa-facebook-f"></i></span> 
+										<span><i class="fa fa-instagram"></i></span> 
+										<span><i class="fa fa-linkedin"></i></span> </div> 
+										<div class=" px-2 rounded mt-4 date "> 
+											<span class="join">Joined {{$user->created_at}}</span> 
+										</div>
+									 </div> 
+									</div>
+</div>
 
 
 
@@ -166,6 +244,24 @@
 	</main>
 
 	<script src="js/app.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<script>
+
+	</script>
 
 </body>
 

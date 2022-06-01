@@ -23,13 +23,12 @@ class SubjectFactory extends Factory
     public function definition()
     {
         return [
-          
-                'name' => $this->faker->word(),
-                'user_id'=> user::get('id')->random(),
-                'created_at'=>now(),
-                
-                
-            
+            'card_id' => $this->faker->sentence(),
+            'acces' => $this->faker->sentence(),
+            'classroom' => $this->faker->sentence(),
+            'user_id'=> user::get('id')->random(),
+            'created_at'=>now(),
         ];
     }
 }
+

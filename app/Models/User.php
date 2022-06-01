@@ -46,11 +46,12 @@ class User extends Authenticatable
         return $this->hasMany(session::class);
     }
     public function subject(){
-        return $this->belongsTo(subject::class);
+        return $this->hasMany(subject::class);
     }
     public function reclamations(){
         return $this->hasMany(reclamation::class);
     }
+   
     /**
  * Send a password reset notification to the user.
  *

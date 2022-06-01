@@ -9,7 +9,7 @@ class subject extends Model
 {
     use HasFactory;
     public function users(){
-        return $this->hasMany(user::class);
+        return $this->belongsTo(user::class);
     }
     public function sessions(){
         return $this->hasMany(sessions::class);
