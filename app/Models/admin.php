@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class admin extends Model
 {
     use HasFactory;
+    public function reclamations(){
+        return $this->hasMany(reclamation::class);
+    }
 }

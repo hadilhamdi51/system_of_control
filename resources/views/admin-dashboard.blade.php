@@ -50,7 +50,7 @@
             </a>
 					</li>
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="{{route('reclamations.index')}}">
+						<a class="sidebar-link" href="{{route('reclamations.exmp')}}">
               <i class="align-middle" data-feather="book"></i> <span class="align-middle">Complaints</span>
             </a>
 					</li>

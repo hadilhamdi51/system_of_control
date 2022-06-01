@@ -51,7 +51,7 @@
 											<h5 class="card-title">{{ $reclamations->updated_at }}</h5>
 										</div>
 										<div class="text-center mt-3">
-											<button type="submit" class="btn btn-outline-danger">BACK</button>
+											<button type="submit" class="btn btn-outline-danger"><a href="{{ route('reclamations.index') }}"></a>BACK</button>
 											<button class="btn btn-outline-success" type="submit" ><a href="{{ route('reclamations.updateEtat', $reclamations->id) }}">DONE</a></button>
 											
 										</div>

@@ -293,8 +293,8 @@
 							<div class="card flex-fill">
 								<div class="card-header mt-9">
 									<h5 class="card-title mb-0">Complaints</h5>	
-									<br>
-									<a href="{{ route('reclamations.create')}}" class="btn btn-outline-warning float-left">Ajouter</a>
+									
+									
 								</div>
 								
  
@@ -305,6 +305,8 @@
                                    <th scope="col">id </th>
                                    <th scope="col">description</th> 
                                    <th scope="col">user_id</th>
+                                   <th scope="col">composant_id</th>
+								   <th scope="col">classroom_id</th> 
 								   <th scope="col">created_at</th> 
 								   <th scope="col">updated_at</th> 
 								   <th scope="col">etat</th> 
@@ -318,12 +320,13 @@
 											<td>{{ $reclamation->id }}</td>
 											<td>{{ Str::substr($reclamation->description, 0, 60).'...' }}</td>
 											<td>{{ $reclamation->user_id }}</td>
-									
+											<td>{{ $reclamation->composant_id }}</td>
+											<td>{{ $reclamation->classroom_id }}</td>
 											<td>{{ Str::substr($reclamation->created_at, 0, 30).'...' }}</td>
 											<td>{{ Str::substr($reclamation->updated_at, 0, 30).'...' }}</td>
 											<td>{{ $reclamation->etat}} </td>
 											<td>
-                                 <a href="{{ route('reclamations.edit', $reclamation->id) }}" class="btn btn-outline-success">edit</a>
+                                 <a href="{{ route('reclamations.show', $reclamation->id) }}" class="btn btn-outline-info">Show</a>
 								 
 				           </td>		
 					</tr> 
