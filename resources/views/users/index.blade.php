@@ -363,7 +363,7 @@
 						<a href="#" 
                         onclick="event.preventDefault();
                         document.querySelector( '#delete-user-form-{{ $user->id }}').submit();">Delete</a>
-                        <button></button>
+                       
 						<form id="delete-user-form-{{ $user->id }}" action="{{ route('users.destroy', $user->id) }}" method="post" style="display: none;">
                             @csrf
                             @method('DELETE')
