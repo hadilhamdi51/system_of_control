@@ -312,14 +312,14 @@
 
 
 								@if (Session::get('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
+							  <div class="alert alert-success alert-dismissible fade show" role="alert">
         <strong>{{Session::get('success')}}</strong>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     @endif
     <div class="row g-3 align-items-center mt-2">
 
-<div class="col-auto"><a class="btn btn-outline-info" href="{{route('users.create')}}"role="button">ADD User</a></div>
+
 
 </div>
   
@@ -356,10 +356,12 @@
                     <td>
                         <a href="{{ route('users.show', $user->id) }}"class="btn btn-outline-info">Show</a>
                         <a href="{{ route('users.edit', $user->id) }}" class="btn btn-outline-warning">Edit</a>
-                        <a href="#" 
+                        
+						<a href="#" 
                         onclick="event.preventDefault();
                         document.querySelector( '#delete-user-form-{{ $user->id }}').submit();">Delete</a>
-                        <form id="delete-user-form-{{ $user->id }}" action="{{ route('users.destroy', $user->id) }}" method="post" style="display: none;">
+                       
+						<form id="delete-user-form-{{ $user->id }}" action="{{ route('users.destroy', $user->id) }}" method="post" style="display: none;">
                             @csrf
                             @method('DELETE')
                         </form>

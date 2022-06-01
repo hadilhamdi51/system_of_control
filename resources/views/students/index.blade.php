@@ -337,7 +337,25 @@
 														
 															<td >{{$student->first_name }}</td>
 															<td >{{$student->last_name }}</td>
-															<td><a href="#" class="btn btn-outline-info"><i class="bi bi-person-x"></i></a></td>
+															<td>
+																<!--<a href="{ { route('students.editabs' , $student->id) }}" class="btn btn-outline-info"><i class="bi bi-person-x"></i></a>
+																-->
+																<a href="#" onclick="event.preventDefault();
+																document.querySelector( '#updateabs-student-form-{{ $student->id }}').submit();"class="btn btn-outline-info"><i class="bi bi-person-x"></i></a>
+																<form id="updateabs-student-form-{{ $student->id }}" action="{{ route('students.updateabs', $student->id) }}" method="post" style="display: none;">
+																	@csrf
+																	@method('PUT')
+																</form>
+
+
+
+															
+															
+															
+															
+															
+															
+															</td>
 															<td >{{$student->department_id}}</td>
 															<td >{{$student->class}}</td>
 															<td >{{$student->state}}</td>

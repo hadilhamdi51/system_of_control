@@ -28,6 +28,9 @@ Route::resource('/users',UserController::class);
 Route::resource('/admin',AdminController::class);
 Route::resource('/reclamations',ReclamationController::class);
 Route::resource('/students', StudentController::class);
+ Route::get('/students/updateabs',[StudentController::class,'updateabs'])->name('students.updateabs');
+
+
 //export en pdf 
 Route::get('/exportpdf',[StudentController::class, 'exportpdf'])->name('exportpdf');
 Route::get('/', function () {
