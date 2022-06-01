@@ -53,6 +53,11 @@
               <i class="align-middle" data-feather="book"></i> <span class="align-middle">My Complaints</span>
             </a>
 					</li>
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{{route('subject.index')}}">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">MY Histories</span>
+            </a>
+					</li>
 
 					<li class="sidebar-header">
 						Tools & Components
