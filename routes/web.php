@@ -29,6 +29,9 @@ Route::resource('/users',UserController::class);
 Route::resource('/admin',AdminController::class);
 Route::resource('/reclamations',ReclamationController::class);
 Route::resource('/students', StudentController::class);
+ Route::get('/students/updateabs',[StudentController::class,'updateabs'])->name('students.updateabs');
+
+
 //export en pdf 
 Route::get('/exportpdf',[StudentController::class, 'exportpdf'])->name('exportpdf');
 Route::get('/', function () {
@@ -50,6 +53,7 @@ Route::get('/admin-dashboard', function(){
 })->middleware(['auth'])->name('admin-dashboard');
 
 Route::get('profile',[AdminController::class,'profile'])->name('admin.profile');
+Route::get('exmp',[ReclamationController::class,'exmp'])->name('reclamations.exmp');
 
    // Route::get('signin',[AdminController::class,'create'])->name('admin.signin');
     Route::get('register',[SaveController::class,'register'])->name('admin.register');

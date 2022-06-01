@@ -5,18 +5,28 @@ use App\Models\reclamation;
 use App\Models\composant;
 use App\Models\classroom;
 use App\Models\User;
+use App\Models\admin;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class ReclamationController extends Controller
-{
-    /**
+{    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+   public function exmp()
+    {
+        $reclamations= reclamation::all();;
+        return view('reclamations.exmp',compact('reclamations'));
+    }
+     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $reclamations=reclamation::all();
+        $reclamations=(Auth::user()->reclamations);
         return view('reclamations.index',compact('reclamations'));
     }
 
@@ -39,17 +49,17 @@ class ReclamationController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'description' => 'required',
+            
             'user_id' => 'required',
-            'composant_id' => 'required',
-            'classroom_id' => 'required',
+            'description' => 'required',
+            'etat' => 'required',
         ]);
 
         $reclamation = new Reclamation;
         $reclamation->description = $request->description;
         $reclamation->user_id = $request->user_id;
-        $reclamation->composant_id = $request->composant_id;
-        $reclamation->classroom_id = $request->classroom_id;
+       
+        $reclamation->etat = $request->etat;
         $reclamation->save();
 
         return redirect()
@@ -79,7 +89,7 @@ class ReclamationController extends Controller
     public function edit($id)
     {
         $reclamations = reclamation::findOrFail($id);
-        return view('reclamations.edit', compact('reclamation'));
+        return view('reclamations.edit', compact('reclamations'));
     }
     /**
      * Show the form for editing the specified resource.
@@ -104,9 +114,9 @@ class ReclamationController extends Controller
     {
         $validatedData= $request->validate([
             'description' => 'required',
-            'user_id' => 'required',
-            'composant_id' => 'required',
-            'classroom_id' => 'required',
+           /*'user_id' => 'required',*/
+            'etat' => 'required',
+            
           ]);
         Reclamation::whereId($id)->update($validatedData);
     
