@@ -47,6 +47,11 @@
 					
 
 					
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="{{route('students.index')}}">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Students</span>
+            </a>
+					</li>
 
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="{{route('reclamations.index')}}">

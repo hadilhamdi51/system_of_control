@@ -131,7 +131,7 @@ hr .new1 {
 	  <div class="container mt-4 mb-4 p-3 d-flex justify-content-center">
 		   <div class="card p-4"> <div class=" image d-flex flex-column justify-content-center align-items-center"> 
 			   <button class="btn btn-secondary"> 
-				   <img src="{{ $user->image }}" height="100" width="100" /></button>
+				   <img src="{{ $user->image}}" height="100" width="100" /></button>
 				    <span class="name mt-3">{{ $user->name }}</span>
 					 <span class="idd">{{ $user->email }}</span> 
 					 <div class="d-flex flex-row justify-content-center align-items-center gap-2"> 
@@ -140,7 +140,7 @@ hr .new1 {
 						</span> </div> <div class="d-flex flex-row justify-content-center align-items-center mt-3">
 							 <span class="number"> <span class="follow"></span>
 							</span> </div> <div class=" d-flex mt-2">
-								 <a class="btn1 btn-dark" href="{{ route('users.edit', $user->id) }} "> Edit Profile</a>
+								
 								 </div> <div class="text mt-3">
 									  <span><br><br>  </span> 
 									</div>
@@ -188,60 +188,7 @@ hr .new1 {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-	<main class="d-flex w-100">
-		<div class="container d-flex flex-column">
-			<div class="row vh-100">
-				<div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
-					<div class="d-table-cell align-middle">
-
-						<div class="text-center mt-4">
-							<h1 class="h2">Details Users</h1>
-						</div>
-
-						<div class="card">
-							<div class="card-body">
-								<div class="m-sm-4">
-									<form  method="post">
-                                        @csrf
-										<div class="mb-3">
-										<label class="h3">Name</label>
-
-    
-                 <h5 class="card-title">{{ $user->name }}</h5>
-                  
-                        </div>
-                        <div>
-                        <label class="h3">Email</label>
-                 <h5 class="card-title">{{ $user->email }}</h5><br>
-      
-                         </div>
-                           </div>
-										<div class="text-center mt-3">
-												<!-- <button type="submit" class="btn btn-outline-danger">BACK</button>
-											<button type="submit" class="btn btn-outline-success">DONE</button>
-										<button type="submit" class="btn btn-lg btn-primary">Sign up</button> -->
-										</div>
-									</form>
-								</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</div>
-	</main>
+	
 
 	<script src="js/app.js"></script>
 

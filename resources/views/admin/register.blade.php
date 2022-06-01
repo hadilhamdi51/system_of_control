@@ -67,6 +67,7 @@
 										 </div>
 										<div class="text-center mt-3">
 											<button type="submit" class="btn btn-block btn-primary">Sign Up</button>
+											<a type="submit" class="btn btn-block btn-primary" href="{{Route('admin-dashboard')}}">Back</a>
 											<!-- <button type="submit" class="btn btn-lg btn-primary">Sign up</button> -->
 										</div>
 									</form>

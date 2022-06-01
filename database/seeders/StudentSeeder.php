@@ -14,7 +14,7 @@ class StudentSeeder extends Seeder
     public function run()
     {
         student::factory()
-        ->count(1)
+        ->count(21)
         ->create();
     }
 }
